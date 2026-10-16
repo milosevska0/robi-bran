@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /uredi/
 
-Sitemap: https://www.pilanatetovo.mk/sitemap-index.xml
+Sitemap: https://pilanatetovo.mk/sitemap-index.xml

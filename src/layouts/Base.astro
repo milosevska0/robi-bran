@@ -10,7 +10,7 @@ const { lang, page } = Astro.props;
 const title = Astro.props.title || t[lang].brand;
 const description = Astro.props.description;
 const alt: Alt = Astro.props.alt ?? (page === 'product' ? routes.products : routes[page]);
-const site = Astro.site ?? new URL('https://www.pilanatetovo.mk');
+const site = Astro.site ?? new URL('https://pilanatetovo.mk');
 const url = (p: string) => new URL(p, site).href;
 const d = t[lang];
 const k = data.kontakt;

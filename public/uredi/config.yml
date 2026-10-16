@@ -13,8 +13,8 @@ backend:
     deleteMedia: 'Админ: избришана слика {{path}}'
 media_folder: src/assets/uploads
 public_folder: /src/assets/uploads
-site_url: https://www.pilanatetovo.mk
-display_url: https://www.pilanatetovo.mk
+site_url: https://pilanatetovo.mk
+display_url: https://pilanatetovo.mk
 logo_url: /robibran-logo.svg
 
 # Текст на два јазика. Ако SQ е празно, на албанската страна се прикажува МК текстот.

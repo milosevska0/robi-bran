@@ -33,7 +33,7 @@ function localAdmin() {
 }
 
 export default defineConfig({
-  site: 'https://www.pilanatetovo.mk',
+  site: 'https://pilanatetovo.mk',
   trailingSlash: 'always',
   integrations: [
     sitemap({
