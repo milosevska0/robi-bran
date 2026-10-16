@@ -5,7 +5,7 @@ Built with [Astro](https://astro.build): plain HTML/CSS output, no database, ver
 
 - Macedonian (default) at `/`, Albanian at `/sq/`
 - Pages: Почетна, За нас, Производи (+ one page per product), Галерија, Контакт
-- Admin panel at `/admin` ([Decap CMS](https://decapcms.org)) so the owner can edit texts, phones, products and photos
+- Admin panel at `/uredi` ([Decap CMS](https://decapcms.org)) so the owner can edit texts, phones, products and photos
 - Contact form via [Web3Forms](https://web3forms.com) (free), Google Map, SEO data for Google (LocalBusiness), sitemap
 
 ## Run it on your computer
@@ -21,7 +21,7 @@ Open http://localhost:4321 – the site reloads when you save a file.
 
 `npm run build` creates the final site in `dist/`. `npm run preview` shows that build locally.
 
-## Admin panel (/admin)
+## Admin panel (/uredi)
 
 All content the owner can change lives in `src/data/*.json`, and the photos in `src/assets/uploads/`.
 The admin panel edits exactly these files; on the live site every "Објави" (Publish) is saved
@@ -35,13 +35,13 @@ to GitHub and the hosting rebuilds the site in about a minute.
 | Our values | `src/data/vrednosti.json` |
 | Products (each one gets its own page) + Products page | `src/data/proizvodi.json` |
 | About, Gallery, Contact pages | `src/data/za-nas.json`, `galerija.json`, `kontakt-strana.json` |
-| Admin panel fields and labels | `public/admin/config.yml` |
+| Admin panel fields and labels | `public/uredi/config.yml` |
 
 Every text is `{ "mk": "...", "sq": "..." }`; if `sq` is empty the Macedonian text is shown.
 Write `{телефон}` in a text to insert the first phone number (if there is no phone, that sentence is left out).
 Photos are resized to 800/1600 px WebP automatically when the site is built.
 
-**Try the admin panel on your computer:** run `npm run dev`, open http://localhost:4321/admin/
+**Try the admin panel on your computer:** run `npm run dev`, open http://localhost:4321/uredi/
 and click „Најава“. The local admin server starts by itself; changes are written to `src/data/` on your computer.
 
 **On the live site** the panel needs a login. This is set up when the site goes on Netlify

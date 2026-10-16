@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
+Disallow: /uredi/
 
 Sitemap: https://www.pilanatetovo.mk/sitemap-index.xml

@@ -1,0 +1,14 @@
+# Netlify settings (picked up automatically)
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Admin panel is never cached, so a new version is seen right away
+[[headers]]
+  for = "/uredi/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+    X-Robots-Tag = "noindex"

@@ -1,6 +1,6 @@
 // Fixed interface texts (menu, buttons, form labels) in Macedonian (mk) and Albanian (sq).
 // The owner's content (contact, products, gallery, page texts) is NOT here:
-// it is edited in the admin panel (/admin) and lives in src/data/*.json.
+// it is edited in the admin panel (/uredi) and lives in src/data/*.json.
 
 export type Lang = 'mk' | 'sq';
 

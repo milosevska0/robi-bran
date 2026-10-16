@@ -1,4 +1,4 @@
-// Everything the owner can change in the admin panel (/admin) lives in src/data/*.json.
+// Everything the owner can change in the admin panel (/uredi) lives in src/data/*.json.
 // This file reads those files and turns them into ready-to-use values for the pages.
 import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';

@@ -4,7 +4,7 @@ import { spawn } from 'node:child_process';
 import { createRequire } from 'node:module';
 import http from 'node:http';
 
-// In `npm run dev` the admin panel (/admin) saves straight to the files on this computer.
+// In `npm run dev` the admin panel (/uredi) saves straight to the files on this computer.
 // The small Decap server for that is started automatically and reached through /api/v1/
 // on the same address as the site, so browsers and ad blockers don't block it.
 function localAdmin() {
@@ -37,7 +37,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/admin/'),
+      filter: (page) => !page.includes('/uredi/'),
       i18n: { defaultLocale: 'mk', locales: { mk: 'mk-MK', sq: 'sq-MK' } },
     }),
     localAdmin(),
