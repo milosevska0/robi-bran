@@ -1,9 +1,11 @@
 ---
 import { t, routes, type Lang, type Alt } from '../i18n/content';
+import { posts, hasLang } from '../lib/site';
 interface Props { lang: Lang; alt: Alt; }
 const { lang, alt } = Astro.props;
 const d = t[lang];
 const keys = ['about', 'products', 'gallery', 'contact'] as const;
+const showBlog = posts.some((p) => hasLang(p, lang));
 ---
 <footer class="site-footer">
   <div class="wrap">
@@ -15,7 +17,7 @@ const keys = ['about', 'products', 'gallery', 'contact'] as const;
     </div>
     <div class="footer-bottom">
       <div>© {new Date().getFullYear()} {d.brand}. {d.rights}<br /><span class="latin-line">{d.latinLine}</span></div>
-      <div><a href={alt.mk} lang="mk">Македонски</a> / <a href={alt.sq} lang="sq">Shqip</a></div>
+      <div>{showBlog && <><a href={routes.blog[lang]}>{d.blog.heading}</a><span class="sep" aria-hidden="true"></span></>}<a href={alt.mk} lang="mk">Македонски</a> / <a href={alt.sq} lang="sq">Shqip</a></div>
     </div>
   </div>
 </footer>

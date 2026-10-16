@@ -15,7 +15,9 @@ interface Props { lang: Lang; page: PageKey; title: string; description: string;
 const { lang, page } = Astro.props;
 const title = Astro.props.title || t[lang].brand;
 const description = Astro.props.description;
-const alt: Alt = Astro.props.alt ?? (page === 'product' ? routes.products : routes[page]);
+const alt: Alt = Astro.props.alt ?? (page === 'product' ? routes.products : page === 'post' ? routes.blog : routes[page]);
+// Language switch: if a page has no Albanian (or Macedonian) version, go to that language's home.
+const sw: Alt = { mk: alt.mk || routes.home.mk, sq: alt.sq || routes.home.sq };
 const site = Astro.site ?? new URL('https://pilanatetovo.mk');
 const url = (p: string) => new URL(p, site).href;
 const d = t[lang];
@@ -81,9 +83,9 @@ const breadcrumbs = crumbs.length ? {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={url(alt[lang])} />
-    <link rel="alternate" hreflang="mk" href={url(alt.mk)} />
-    <link rel="alternate" hreflang="sq" href={url(alt.sq)} />
-    <link rel="alternate" hreflang="x-default" href={url(alt.mk)} />
+    {alt.mk && alt.sq && <link rel="alternate" hreflang="mk" href={url(alt.mk)} />}
+    {alt.mk && alt.sq && <link rel="alternate" hreflang="sq" href={url(alt.sq)} />}
+    {alt.mk && alt.sq && <link rel="alternate" hreflang="x-default" href={url(alt.mk)} />}
     <meta name="theme-color" content="#1E4D33" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
@@ -104,11 +106,11 @@ const breadcrumbs = crumbs.length ? {
   <body>
     <a class="skip" href="#main">{lang === 'mk' ? 'Прескокни до содржината' : 'Kalo te përmbajtja'}</a>
     {notice && <div class="notice" role="status" aria-label={d.notice}><div class="wrap">{notice}</div></div>}
-    <Header lang={lang} page={page} alt={alt} />
+    <Header lang={lang} page={page} alt={sw} />
     <main id="main">
       <slot />
     </main>
-    <Footer lang={lang} alt={alt} />
+    <Footer lang={lang} alt={sw} />
     <script>
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

@@ -10,9 +10,10 @@ export const routes = {
   products: { mk: '/proizvodi/', sq: '/sq/produkte/' },
   gallery: { mk: '/galerija/', sq: '/sq/galeria/' },
   contact: { mk: '/kontakt/', sq: '/sq/kontakt/' },
+  blog: { mk: '/blog/', sq: '/sq/blog/' },
 } as const;
 
-export type PageKey = keyof typeof routes | 'product';
+export type PageKey = keyof typeof routes | 'product' | 'post';
 export type Alt = { mk: string; sq: string };
 
 // Location on the map (not editable in the admin panel)
@@ -50,6 +51,7 @@ export const t = {
     "mapTitle": "Локација на Пилана Роби Бран на Google мапа",
     "rights": "Сите права задржани.",
     "latinLine": "Pilana Robi Bran – pilana vo Tetovo, s. Tudence",
+    "blog": {"title": "Блог – Пилана Роби Бран, Тетово", "heading": "Блог", "description": "Совети и објаснувања за буковата граѓа и А1 пелетот од Пилана Роби Бран, Тетово.", "readMore": "Прочитајте", "back": "Сите написи", "empty": "Наскоро."},
     "home": {
       "seeProducts": "Погледнете ги производите",
       "readAbout": "Прочитајте повеќе за нас",
@@ -104,6 +106,7 @@ export const t = {
     "mapTitle": "Vendndodhja e Sharrës Robi Bran në Google Maps",
     "rights": "Të gjitha të drejtat e rezervuara.",
     "latinLine": "Sharra Robi Bran – sharrë në Tetovë, fsh. Tudencë",
+    "blog": {"title": "Blog – Sharra Robi Bran, Tetovë", "heading": "Blog", "description": "Këshilla dhe shpjegime për lëndën e ahut dhe peletin A1 nga Sharra Robi Bran, Tetovë.", "readMore": "Lexoni", "back": "Të gjithë artikujt", "empty": "Së shpejti."},
     "home": {
       "seeProducts": "Shikoni produktet",
       "readAbout": "Lexoni më shumë për ne",

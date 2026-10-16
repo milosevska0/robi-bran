@@ -1,0 +1,8 @@
+---
+import V from '../../../views/BlogPost.astro';
+import { posts, hasLang } from '../../../lib/site';
+export function getStaticPaths() {
+  return posts.filter((p) => hasLang(p, 'sq')).map((p) => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+---
+<V lang="sq" post={Astro.props.post} />

@@ -1,0 +1,42 @@
+---
+// One blog post (text written in the admin panel, Markdown).
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { marked } from 'marked';
+import { getImage } from 'astro:assets';
+import { t, routes, type Lang } from '../i18n/content';
+import { postAlt, postPath, formatDate, findImage, L, type Post } from '../lib/site';
+interface Props { lang: Lang; post: Post; }
+const { lang, post } = Astro.props;
+const d = t[lang];
+const title = L(post.naslov, lang);
+const desc = L(post.opis, lang);
+const html = await marked.parse(L(post.tekst, lang));
+const site = Astro.site ?? new URL('https://pilanatetovo.mk');
+const imgMeta = findImage(post.slika);
+const img = imgMeta ? new URL((await getImage({ src: imgMeta, width: Math.min(1200, imgMeta.width), format: 'jpg' })).src, site).href : undefined;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description: desc,
+  datePublished: post.datum,
+  inLanguage: lang,
+  ...(img ? { image: img } : {}),
+  mainEntityOfPage: new URL(postPath(post, lang), site).href,
+  author: { '@type': 'Organization', name: d.brand },
+  publisher: { '@id': new URL('/#business', site).href },
+};
+---
+<Base lang={lang} page="post" title={`${title} | ${d.brand}`} description={desc} alt={postAlt(post)} ogImage={post.slika}
+  crumbs={[{ name: d.blog.heading, path: routes.blog[lang] }, { name: title, path: postPath(post, lang) }]}>
+  <article class="wrap section post">
+    <div class="crumbs-dark"><a href={routes.home[lang]}>{d.breadcrumbHome}</a> / <a href={routes.blog[lang]}>{d.blog.heading}</a></div>
+    <h1>{title}</h1>
+    <time datetime={post.datum}>{formatDate(post.datum, lang)}</time>
+    {post.slika && <Pic src={post.slika} alt={title} eager sizes="(max-width: 700px) 100vw, 760px" />}
+    <div class="post-body" set:html={html} />
+    <a class="link" href={routes.blog[lang]}>{d.blog.back}</a>
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</Base>

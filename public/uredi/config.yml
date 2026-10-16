@@ -318,3 +318,38 @@ collections:
               - { name: naslov, label: 'Наслов', <<: *line }
               - { name: tekst, label: 'Текст', <<: *text }
           - *seo
+
+  - name: blog
+    label: 'Блог'
+    label_singular: 'напис'
+    description: 'Написите се гледаат на /blog (линк има во подножјето). Се прикажуваат само написите со вклучено „Објави на сајтот“.'
+    folder: src/data/blog
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: slug
+    slug: '{{fields.slug}}'
+    summary: '{{fields.naslov.mk}}'
+    sortable_fields: ['datum']
+    editor: { preview: false }
+    fields:
+      - { name: objaveno, label: 'Објави на сајтот', widget: boolean, default: false, hint: 'Додека е исклучено, написот не се гледа на сајтот.' }
+      - { name: naslov, label: 'Наслов', <<: *line }
+      - name: slug
+        label: 'Адреса на написот'
+        hint: 'Само мали латинични букви и цртички, на пр. kako-da-se-chuva-pelet. Не менувајте откако е објавен.'
+        widget: string
+        pattern: ['^[a-z0-9-]+$', 'Само мали латинични букви, бројки и цртички']
+      - { name: datum, label: 'Датум', widget: datetime, format: 'YYYY-MM-DD', date_format: 'DD.MM.YYYY', time_format: false }
+      - { name: opis, label: 'Краток опис (за листата и Google)', <<: *textopt }
+      - { name: slika, label: 'Слика', widget: image, required: false, choose_url: false }
+      - name: tekst
+        label: 'Текст'
+        hint: 'Може да користите наслови, листи и задебелен текст. Ако SQ е празно, написот се гледа само на македонски.'
+        widget: object
+        collapsed: false
+        fields:
+          - { name: mk, label: 'МК', widget: markdown, buttons: ['bold', 'italic', 'link', 'heading-two', 'bulleted-list', 'numbered-list'], editor_components: [] }
+          - { name: sq, label: 'SQ', widget: markdown, required: false, buttons: ['bold', 'italic', 'link', 'heading-two', 'bulleted-list', 'numbered-list'], editor_components: [] }
+

@@ -42,12 +42,16 @@ export function fill(text: string, lang: Lang = 'mk'): string {
     if (k === 'адреса' || k === 'adresa') return (kontakt.adresa?.[lang] || kontakt.adresa?.mk || '').trim();
     return hours(lang).map((h, i) => (i ? h.charAt(0).toLowerCase() + h.slice(1) : h)).join('; ');
   };
-  return text
-    .split(/(?<=[.!?])\s+/)
-    .filter((sentence) => [...sentence.matchAll(TOKEN)].every((m) => value(m[1])))
-    .map((sentence) => sentence.replace(TOKEN, (_, k) => value(k)))
-    .join(' ')
-    .trim();
+  // Split into sentences but keep the original spaces/new lines between them (Markdown needs them).
+  const parts = text.split(/((?<=[.!?])\s+)/);
+  let out = '';
+  for (let i = 0; i < parts.length; i += 2) {
+    const sentence = parts[i];
+    const gap = parts[i + 1] ?? '';
+    if (![...sentence.matchAll(TOKEN)].every((m) => value(m[1]))) continue;
+    out += sentence.replace(TOKEN, (_, k) => value(k)) + gap;
+  }
+  return out.trim();
 }
 
 // Pick the language from a { mk, sq } pair (falls back to Macedonian).
@@ -121,3 +125,22 @@ export async function responsive(path: string | undefined) {
     height: Math.round((meta.height / meta.width) * widths[widths.length - 1]),
   };
 }
+
+// ---- Blog -----------------------------------------------------------------
+// Posts live in src/data/blog/*.json (one file per post). Only "objaveno: true" posts are shown.
+export type Post = {
+  slug: string; objaveno?: boolean; datum: string; slika?: string;
+  naslov: Pair; opis?: Pair; tekst: Pair;
+};
+const postFiles = import.meta.glob<Post>('../data/blog/*.json', { eager: true, import: 'default' });
+export const posts: Post[] = Object.values(postFiles)
+  .filter((p) => p && p.objaveno && p.slug && p.naslov?.mk && p.tekst?.mk)
+  .sort((a, b) => String(b.datum).localeCompare(String(a.datum)));
+export const hasLang = (p: Post, lang: Lang) => lang === 'mk' || Boolean(p.naslov?.sq?.trim() && p.tekst?.sq?.trim());
+export const postPath = (p: Post, lang: Lang) => (lang === 'mk' ? `/blog/${p.slug}/` : `/sq/blog/${p.slug}/`);
+export const postAlt = (p: Post) => ({ mk: postPath(p, 'mk'), sq: hasLang(p, 'sq') ? postPath(p, 'sq') : '' });
+export const formatDate = (d: string, lang: Lang) => {
+  const dt = new Date(d);
+  if (isNaN(+dt)) return d;
+  return dt.toLocaleDateString(lang === 'mk' ? 'mk-MK' : 'sq-AL', { day: 'numeric', month: 'long', year: 'numeric' });
+};

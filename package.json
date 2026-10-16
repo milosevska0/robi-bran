@@ -12,7 +12,8 @@
     "@astrojs/sitemap": "3.7.4",
     "@fontsource/oswald": "^5.2.8",
     "@fontsource/source-sans-3": "^5.2.8",
-    "astro": "5.18.2"
+    "astro": "5.18.2",
+    "marked": "^15.0.12"
   },
   "devDependencies": {
     "decap-server": "3.3.1"

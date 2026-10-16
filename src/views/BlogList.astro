@@ -1,0 +1,32 @@
+---
+// Blog list. Linked only from the footer.
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { t, routes, type Lang } from '../i18n/content';
+import { posts, hasLang, postPath, formatDate, L } from '../lib/site';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const d = t[lang];
+const b = d.blog;
+const list = posts.filter((p) => hasLang(p, lang));
+---
+<Base lang={lang} page="blog" title={b.title} description={b.description} crumbs={[{ name: b.heading, path: routes.blog[lang] }]}>
+  <div class="wrap section blog">
+    <div class="crumbs-dark"><a href={routes.home[lang]}>{d.breadcrumbHome}</a> / {b.heading}</div>
+    <h1>{b.heading}</h1>
+    {list.length === 0 && <p class="text">{b.empty}</p>}
+    <div class="post-list">
+      {list.map((p) => (
+        <article class="post-card">
+          {p.slika && <a href={postPath(p, lang)} tabindex="-1" aria-hidden="true"><Pic src={p.slika} alt="" sizes="(max-width: 700px) 100vw, 360px" /></a>}
+          <div>
+            <time datetime={p.datum}>{formatDate(p.datum, lang)}</time>
+            <h2><a href={postPath(p, lang)}>{L(p.naslov, lang)}</a></h2>
+            {p.opis && <p>{L(p.opis, lang)}</p>}
+            <a class="link" href={postPath(p, lang)}>{b.readMore}</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Base>
