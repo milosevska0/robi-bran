@@ -79,5 +79,30 @@ const ld = {
       <slot />
     </main>
     <Footer lang={lang} page={page} />
+    <script>
+      // Parallax: background photos move slower than the page while scrolling.
+      // Turned off for visitors who ask their system for reduced motion.
+      const sections = [...document.querySelectorAll<HTMLElement>('.parallax')];
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        if (reduce.matches) return;
+        const vh = window.innerHeight;
+        for (const s of sections) {
+          const r = s.getBoundingClientRect();
+          if (r.bottom < 0 || r.top > vh) continue;
+          const img = s.querySelector<HTMLElement>('.cover');
+          if (!img) continue;
+          // -1 when the section enters at the bottom, 0 in the middle, 1 when it leaves at the top
+          const p = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
+          img.style.transform = `translate3d(0, ${(p * r.height * 0.12).toFixed(1)}px, 0)`;
+        }
+      };
+      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      update();
+    </script>
   </body>
 </html>

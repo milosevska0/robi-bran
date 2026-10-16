@@ -5,7 +5,7 @@ import { t, routes, type Lang, type PhotoKey } from '../i18n/content';
 interface Props { lang: Lang; title: string; photo: PhotoKey; }
 const { lang, title, photo } = Astro.props;
 ---
-<section class="banner">
+<section class="banner parallax">
   <Pic photo={photo} lang={lang} class="cover" sizes="100vw" eager decorative />
   <div class="shade-banner"></div>
   <div class="wrap banner-inner">

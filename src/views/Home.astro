@@ -16,7 +16,7 @@ const products = [
 ];
 ---
 <Base lang={lang} page="home" title={h.title} description={h.description}>
-  <section class="hero">
+  <section class="hero parallax">
     <Pic photo="heroYard" lang={lang} class="cover" sizes="100vw" eager alt={h.heroAlt} />
     <div class="shade"></div>
     <div class="wrap hero-inner">
@@ -29,7 +29,7 @@ const products = [
     </div>
   </section>
 
-  <section class="band story">
+  <section class="band story parallax">
     <Pic photo="sawLog" lang={lang} class="cover" sizes="100vw" decorative />
     <div class="shade-strong"></div>
     <div class="narrow band-inner">
@@ -74,7 +74,7 @@ const products = [
     </div>
   </section>
 
-  <section class="band">
+  <section class="band parallax">
     <Pic photo="yardMountain" lang={lang} class="cover" sizes="100vw" decorative />
     <div class="shade-strong"></div>
     <div class="wrap band-inner contact-grid">

@@ -7,7 +7,7 @@ interface Props { lang: Lang; title: string; text: string; }
 const { lang, title, text } = Astro.props;
 const d = t[lang];
 ---
-<section class="band cta">
+<section class="band cta parallax">
   <Pic photo="yardMountain" lang={lang} class="cover" sizes="100vw" decorative />
   <div class="shade-strong"></div>
   <div class="narrow band-inner">
