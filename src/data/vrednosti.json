@@ -1,0 +1,38 @@
+{
+  "naslov": {
+    "mk": "Нашите вредности",
+    "sq": "Vlerat tona"
+  },
+  "stavki": [
+    {
+      "naslov": {
+        "mk": "Квалитет",
+        "sq": "Cilësia"
+      },
+      "tekst": {
+        "mk": "Внимателен избор на суровина и проверка на секоја испорака.",
+        "sq": "Zgjedhje e kujdesshme e lëndës së parë dhe kontroll i çdo dërgese."
+      }
+    },
+    {
+      "naslov": {
+        "mk": "Мерка по желба",
+        "sq": "Masa sipas dëshirës"
+      },
+      "tekst": {
+        "mk": "Сечеме по ваша мерка.",
+        "sq": "Presim sipas masës suaj."
+      }
+    },
+    {
+      "naslov": {
+        "mk": "Семејна традиција",
+        "sq": "Traditë familjare"
+      },
+      "tekst": {
+        "mk": "Семејно знаење пренесено низ генерации.",
+        "sq": "Njohuri familjare të përcjella brez pas brezi."
+      }
+    }
+  ]
+}

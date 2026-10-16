@@ -4,31 +4,33 @@ import Banner from '../components/Banner.astro';
 import Pic from '../components/Pic.astro';
 import Values from '../components/Values.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { t, type Lang } from '../i18n/content';
+import { type Lang } from '../i18n/content';
+import { data, L } from '../lib/site';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
-const a = t[lang].about;
+const a = data.zaNas;
+const paras = (list: { mk: string; sq: string }[] | undefined) => (list ?? []).map((p) => L(p, lang)).filter(Boolean);
 ---
-<Base lang={lang} page="about" title={a.title} description={a.description}>
-  <Banner lang={lang} title={a.heading} photo="sawLog" />
+<Base lang={lang} page="about" title={L(a.seo?.naslov, lang)} description={L(a.seo?.opis, lang)}>
+  <Banner lang={lang} title={L(a.naslov, lang)} photo={a.slika} />
 
   <section class="wrap section split">
     <div class="prose">
-      <h2>{a.storyTitle}</h2>
-      {a.story.map((p) => <p>{p}</p>)}
+      <h2>{L(a.prikazna.naslov, lang)}</h2>
+      {paras(a.prikazna.paragrafi).map((p) => <p>{p}</p>)}
     </div>
-    <Pic photo="yardForklift" lang={lang} alt={a.yardAlt} />
+    <Pic src={a.prikazna.slika.slika} alt={L(a.prikazna.slika.opis, lang)} />
   </section>
 
   <Values lang={lang} />
 
   <section class="wrap section split reverse-sm">
-    <Pic photo="sawLog" lang={lang} alt={a.sawAlt} />
+    <Pic src={a.rabota.slika.slika} alt={L(a.rabota.slika.opis, lang)} />
     <div class="prose">
-      <h2 class="ink">{a.howTitle}</h2>
-      {a.how.map((p) => <p>{p}</p>)}
+      <h2 class="ink">{L(a.rabota.naslov, lang)}</h2>
+      {paras(a.rabota.paragrafi).map((p) => <p>{p}</p>)}
     </div>
   </section>
 
-  <CtaBand lang={lang} title={a.ctaTitle} text={a.ctaText} />
+  <CtaBand lang={lang} title={L(a.povik.naslov, lang)} text={L(a.povik.tekst, lang)} />
 </Base>

@@ -1,14 +1,20 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { t, routes, business, type Lang, type PageKey } from '../i18n/content';
+import { t, routes, business, type Lang, type PageKey, type Alt } from '../i18n/content';
+import { data, phones, hoursSchema, products, L } from '../lib/site';
 import '../styles/global.css';
 
-interface Props { lang: Lang; page: PageKey; title: string; description: string; }
-const { lang, page, title, description } = Astro.props;
+interface Props { lang: Lang; page: PageKey; title: string; description: string; alt?: Alt; }
+const { lang, page } = Astro.props;
+const title = Astro.props.title || t[lang].brand;
+const description = Astro.props.description;
+const alt: Alt = Astro.props.alt ?? (page === 'product' ? routes.products : routes[page]);
 const site = Astro.site ?? new URL('https://www.pilanatetovo.mk');
 const url = (p: string) => new URL(p, site).href;
 const d = t[lang];
+const k = data.kontakt;
+const notice = data.izvestuvanje.vkluceno ? L(data.izvestuvanje.tekst, lang) : '';
 
 // Information for Google (LocalBusiness), so the pilana shows up properly in search and Maps.
 const ld = {
@@ -17,16 +23,16 @@ const ld = {
   '@id': url('/#business'),
   name: t.mk.brand,
   alternateName: ['Robi Bran', 'Pilana Robi Bran', 'Pilana Robi-Bran', t.sq.brand],
-  description: t.mk.home.description,
+  description: L(data.pocetna.seo?.opis, 'mk'),
   url: url('/'),
   logo: url('/og-logo.png'),
   image: url('/og-image.jpg'),
-  telephone: [business.phone1Tel, business.phone2Tel],
-  ...(business.email ? { email: business.email } : {}),
+  ...(phones.length ? { telephone: phones.map((p) => p.tel) } : {}),
+  ...(k.email?.trim() ? { email: k.email.trim() } : {}),
   foundingDate: business.founded,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'ул. 101',
+    streetAddress: L(k.adresa, 'mk').split(',')[0],
     addressLocality: 'Туденце, Тетово',
     addressRegion: 'Тетово',
     postalCode: '1200',
@@ -34,15 +40,9 @@ const ld = {
   },
   geo: { '@type': 'GeoCoordinates', latitude: business.lat, longitude: business.lng },
   hasMap: business.mapsLink,
-  openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '16:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '12:00' },
-  ],
-  sameAs: [business.facebook],
-  makesOffer: [
-    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: t.mk.products.beech.name } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: t.mk.products.pellet.name } },
-  ],
+  ...(hoursSchema.length ? { openingHoursSpecification: hoursSchema } : {}),
+  ...(k.facebook?.trim() ? { sameAs: [k.facebook.trim()] } : {}),
+  makesOffer: products.map((p) => ({ '@type': 'Offer', itemOffered: { '@type': 'Product', name: L(p.ime, 'mk') } })),
 };
 ---
 <!doctype html>
@@ -52,10 +52,10 @@ const ld = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={url(routes[page][lang])} />
-    <link rel="alternate" hreflang="mk" href={url(routes[page].mk)} />
-    <link rel="alternate" hreflang="sq" href={url(routes[page].sq)} />
-    <link rel="alternate" hreflang="x-default" href={url(routes[page].mk)} />
+    <link rel="canonical" href={url(alt[lang])} />
+    <link rel="alternate" hreflang="mk" href={url(alt.mk)} />
+    <link rel="alternate" hreflang="sq" href={url(alt.sq)} />
+    <link rel="alternate" hreflang="x-default" href={url(alt.mk)} />
     <meta name="theme-color" content="#1E4D33" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
@@ -64,7 +64,7 @@ const ld = {
     <meta property="og:site_name" content={d.brand} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={url(routes[page][lang])} />
+    <meta property="og:url" content={url(alt[lang])} />
     <meta property="og:image" content={url('/og-image.jpg')} />
     <meta property="og:locale" content={lang === 'mk' ? 'mk_MK' : 'sq_MK'} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -75,11 +75,12 @@ const ld = {
   </head>
   <body>
     <a class="skip" href="#main">{lang === 'mk' ? 'Прескокни до содржината' : 'Kalo te përmbajtja'}</a>
-    <Header lang={lang} page={page} />
+    {notice && <div class="notice" role="status" aria-label={d.notice}><div class="wrap">{notice}</div></div>}
+    <Header lang={lang} page={page} alt={alt} />
     <main id="main">
       <slot />
     </main>
-    <Footer lang={lang} page={page} />
+    <Footer lang={lang} alt={alt} />
     <script>
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

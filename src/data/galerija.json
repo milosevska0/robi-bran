@@ -1,0 +1,155 @@
+{
+  "seo": {
+    "naslov": {
+      "mk": "Галерија – Пилана Роби Бран, Тетово",
+      "sq": "Galeria – Sharra Robi Bran, Tetovë"
+    },
+    "opis": {
+      "mk": "Фотографии од пиланата, буковата граѓа и А1 пелетот на Пилана Роби Бран во с. Туденце, Тетово.",
+      "sq": "Fotografi nga sharra, lënda e ahut dhe peleti A1 i Sharrës Robi Bran në fshatin Tudencë, Tetovë."
+    }
+  },
+  "naslov": {
+    "mk": "Галерија",
+    "sq": "Galeria"
+  },
+  "slika": "/src/assets/uploads/yard-forklift.webp",
+  "sliki": [
+    {
+      "slika": "/src/assets/uploads/hero-yard.webp",
+      "opis": {
+        "mk": "Букова граѓа во дворот, со Шар Планина",
+        "sq": "Lëndë ahu në oborr, me malin Sharr"
+      },
+      "kategorija": "pilana"
+    },
+    {
+      "slika": "/src/assets/uploads/lumber-stacks.webp",
+      "opis": {
+        "mk": "Наредени букови штици",
+        "sq": "Dërrasa ahu të radhitura"
+      },
+      "kategorija": "grada"
+    },
+    {
+      "slika": "/src/assets/uploads/pellets-bags.webp",
+      "opis": {
+        "mk": "Вреќи А1 пелет",
+        "sq": "Thasë me pelet A1"
+      },
+      "kategorija": "pelet"
+    },
+    {
+      "slika": "/src/assets/uploads/saw-log.webp",
+      "opis": {
+        "mk": "Буков трупец на пилата",
+        "sq": "Trung ahu në sharrë"
+      },
+      "kategorija": "pilana"
+    },
+    {
+      "slika": "/src/assets/uploads/lumber-beams.webp",
+      "opis": {
+        "mk": "Букови греди наредени во дворот",
+        "sq": "Trarë ahu të radhitur në oborr"
+      },
+      "kategorija": "grada"
+    },
+    {
+      "slika": "/src/assets/uploads/pellets-pallets.webp",
+      "opis": {
+        "mk": "Наредени палети пелет",
+        "sq": "Paleta pelet të radhitura"
+      },
+      "kategorija": "pelet"
+    },
+    {
+      "slika": "/src/assets/uploads/yard-forklift.webp",
+      "opis": {
+        "mk": "Дворот на пиланата со виљушкар",
+        "sq": "Oborri i sharrës me pirun ngritës"
+      },
+      "kategorija": "pilana"
+    },
+    {
+      "slika": "/src/assets/uploads/lumber-boards.webp",
+      "opis": {
+        "mk": "Букови штици",
+        "sq": "Dërrasa ahu"
+      },
+      "kategorija": "grada"
+    },
+    {
+      "slika": "/src/assets/uploads/pellets-stack.webp",
+      "opis": {
+        "mk": "Палети со пелет",
+        "sq": "Paleta me pelet"
+      },
+      "kategorija": "pelet"
+    },
+    {
+      "slika": "/src/assets/uploads/lumber-stacks2.webp",
+      "opis": {
+        "mk": "Наредена букова граѓа",
+        "sq": "Lëndë ahu e radhitur"
+      },
+      "kategorija": "grada"
+    },
+    {
+      "slika": "/src/assets/uploads/yard-mountain.webp",
+      "opis": {
+        "mk": "Граѓа пред Шар Планина",
+        "sq": "Lëndë para malit Sharr"
+      },
+      "kategorija": "pilana"
+    },
+    {
+      "slika": "/src/assets/uploads/yard-stacks.webp",
+      "opis": {
+        "mk": "Граѓа подготвена за подигање",
+        "sq": "Lëndë gati për t’u marrë"
+      },
+      "kategorija": "grada"
+    },
+    {
+      "slika": "/src/assets/uploads/logs-truck.webp",
+      "opis": {
+        "mk": "Камион со трупци пред пиланата",
+        "sq": "Kamion me trungje para sharrës"
+      },
+      "kategorija": "pilana"
+    },
+    {
+      "slika": "/src/assets/uploads/pellets-warehouse.webp",
+      "opis": {
+        "mk": "Пелет во магацинот",
+        "sq": "Pelet në magazinë"
+      },
+      "kategorija": "pelet"
+    },
+    {
+      "slika": "/src/assets/uploads/saw-log-2.webp",
+      "opis": {
+        "mk": "Сечење на трупец во пиланата",
+        "sq": "Prerja e trungut në sharrë"
+      },
+      "kategorija": "pilana"
+    },
+    {
+      "slika": "/src/assets/uploads/lumber-planks.webp",
+      "opis": {
+        "mk": "Букови талпи",
+        "sq": "Tabla ahu"
+      },
+      "kategorija": "grada"
+    },
+    {
+      "slika": "/src/assets/uploads/pellets-closeup.webp",
+      "opis": {
+        "mk": "Вреќи пелет од 15 kg",
+        "sq": "Thasë pelet 15 kg"
+      },
+      "kategorija": "pelet"
+    }
+  ]
+}

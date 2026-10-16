@@ -1,0 +1,36 @@
+{
+  "telefoni": [
+    {
+      "broj": "070 395 033"
+    },
+    {
+      "broj": "075 353 919"
+    }
+  ],
+  "email": "info@robibran.mk",
+  "adresa": {
+    "mk": "ул. 101, с. Туденце, Тетово",
+    "sq": "Rr. 101, fsh. Tudencë, Tetovë"
+  },
+  "rabotnoVreme": [
+    {
+      "denovi": [
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri"
+      ],
+      "od": "08:00",
+      "do": "16:00"
+    },
+    {
+      "denovi": [
+        "sat"
+      ],
+      "od": "08:00",
+      "do": "12:00"
+    }
+  ],
+  "facebook": "https://www.facebook.com/robibran1/"
+}

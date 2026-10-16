@@ -1,18 +1,23 @@
 ---
-import { t, type Lang } from '../i18n/content';
+import { type Lang } from '../i18n/content';
+import { data, L } from '../lib/site';
 interface Props { lang: Lang; }
-const v = t[Astro.props.lang].values;
+const { lang } = Astro.props;
+const v = data.vrednosti;
+const items = (v.stavki ?? []).map((i) => ({ title: L(i.naslov, lang), text: L(i.tekst, lang) })).filter((i) => i.title || i.text);
 ---
-<section class="values" aria-labelledby="values-title">
-  <div class="wrap">
-    <h2 id="values-title">{v.title}</h2>
-    <div class="values-grid">
-      {v.items.map((i) => (
-        <div>
-          <h3>{i.title}</h3>
-          <p>{i.text}</p>
-        </div>
-      ))}
+{items.length > 0 && (
+  <section class="values" aria-labelledby="values-title">
+    <div class="wrap">
+      <h2 id="values-title">{L(v.naslov, lang)}</h2>
+      <div class="values-grid">
+        {items.map((i) => (
+          <div>
+            {i.title && <h3>{i.title}</h3>}
+            {i.text && <p>{i.text}</p>}
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+)}

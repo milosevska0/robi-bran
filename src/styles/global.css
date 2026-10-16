@@ -359,3 +359,7 @@ main::before {
   opacity: var(--grain, 0.08);
 }
 @media (max-width: 700px) { main::before { background-size: 560px auto; } }
+
+/* Notice bar at the very top (turned on in the admin panel) */
+.notice { background: var(--green-dark, #14362A); color: #fff; font-size: 15px; line-height: 1.4; text-align: center; }
+.notice .wrap { padding-top: 10px; padding-bottom: 10px; }

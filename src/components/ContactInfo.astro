@@ -1,16 +1,21 @@
 ---
-// Address, phones, hours and e-mail with small line icons.
+// Address, phones, hours and e-mail with small line icons. Empty items are not shown.
 import Icon from './Icon.astro';
-import { t, business, type Lang } from '../i18n/content';
+import { type Lang } from '../i18n/content';
+import { data, phones, hours, L } from '../lib/site';
 interface Props { lang: Lang; dark?: boolean; }
 const { lang, dark = false } = Astro.props;
-const d = t[lang];
 const ic = dark ? '#D9B98C' : '#1E4D33';
 const linkStyle = dark ? 'color:#fff' : undefined;
+const address = L(data.kontakt.adresa, lang);
+const email = data.kontakt.email?.trim();
+const h = hours(lang);
 ---
 <ul class="info">
-  <li><Icon name="pin" size={22} color={ic} /><span>{d.address}</span></li>
-  <li><Icon name="phone" size={22} color={ic} /><span><a href={`tel:${business.phone1Tel}`} style={linkStyle}>{business.phone1}</a><br /><a href={`tel:${business.phone2Tel}`} style={linkStyle}>{business.phone2}</a></span></li>
-  <li><Icon name="clock" size={22} color={ic} /><span>{d.hoursWeek}<br />{d.hoursSat}</span></li>
-  <li><Icon name="mail" size={22} color={ic} />{business.email ? <a href={`mailto:${business.email}`} style={linkStyle}>{business.email}</a> : <span>{d.emailMissing}</span>}</li>
+  {address && <li><Icon name="pin" size={22} color={ic} /><span>{address}</span></li>}
+  {phones.length > 0 && (
+    <li><Icon name="phone" size={22} color={ic} /><span>{phones.map((p, i) => <>{i > 0 && <br />}<a href={`tel:${p.tel}`} style={linkStyle}>{p.number}</a></>)}</span></li>
+  )}
+  {h.length > 0 && <li><Icon name="clock" size={22} color={ic} /><span>{h.map((x, i) => <>{i > 0 && <br />}{x}</>)}</span></li>}
+  {email && <li><Icon name="mail" size={22} color={ic} /><a href={`mailto:${email}`} style={linkStyle}>{email}</a></li>}
 </ul>

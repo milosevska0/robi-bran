@@ -1,0 +1,94 @@
+{
+  "seo": {
+    "naslov": {
+      "mk": "Пилана Роби Бран – букова граѓа и А1 пелет, Тетово",
+      "sq": "Sharra Robi Bran – lëndë ahu dhe pelet A1, Tetovë"
+    },
+    "opis": {
+      "mk": "Семејна пилана во с. Туденце, Тетово, од 2005 година. Букова граѓа сечена по мерка и сертифициран А1 пелет во вреќи од 15 kg.",
+      "sq": "Sharrë familjare në fshatin Tudencë, Tetovë, që nga viti 2005. Lëndë ahu e prerë sipas masës dhe pelet i certifikuar A1 në thasë 15 kg."
+    }
+  },
+  "glavnaSlika": {
+    "slika": "/src/assets/uploads/hero-yard.webp",
+    "opis": {
+      "mk": "Наредена букова граѓа во дворот на пиланата, со Шар Планина во позадина",
+      "sq": "Lëndë ahu e radhitur në oborrin e sharrës, me malin Sharr në sfond"
+    }
+  },
+  "heroTekst": {
+    "mk": "Букова граѓа по мерка и сертифициран А1 пелет, во Тетово.",
+    "sq": "Lëndë ahu sipas masës dhe pelet i certifikuar A1, në Tetovë."
+  },
+  "prikazna": {
+    "naslov": {
+      "mk": "Семејна пилана од 2005 година.",
+      "sq": "Sharrë familjare që nga viti 2005."
+    },
+    "tekst": {
+      "mk": "Квалитетот започнува уште при изборот на трупците. Ги сечеме по димензиите што ви требаат и ги подготвуваме за подигање, затоа добивате граѓа подготвена за работа.",
+      "sq": "Cilësia fillon që në zgjedhjen e trungjeve. I presim sipas përmasave që ju nevojiten dhe i përgatisim për marrje, prandaj merrni lëndë gati për punë."
+    },
+    "slika": "/src/assets/uploads/saw-log.webp"
+  },
+  "proizvodi": {
+    "naslov": {
+      "mk": "Производи",
+      "sq": "Produkte"
+    },
+    "tekst": {
+      "mk": "Сите производи се подигаат директно од пиланата.",
+      "sq": "Të gjitha produktet merren drejtpërdrejt në sharrë."
+    }
+  },
+  "galerija": {
+    "naslov": {
+      "mk": "Од нашиот двор",
+      "sq": "Nga oborri ynë"
+    },
+    "sliki": [
+      {
+        "slika": "/src/assets/uploads/yard-forklift.webp",
+        "opis": {
+          "mk": "Дворот на пиланата со виљушкар",
+          "sq": "Oborri i sharrës me pirun ngritës"
+        }
+      },
+      {
+        "slika": "/src/assets/uploads/lumber-beams.webp",
+        "opis": {
+          "mk": "Букови греди наредени во дворот",
+          "sq": "Trarë ahu të radhitur në oborr"
+        }
+      },
+      {
+        "slika": "/src/assets/uploads/saw-log.webp",
+        "opis": {
+          "mk": "Буков трупец на пилата",
+          "sq": "Trung ahu në sharrë"
+        }
+      },
+      {
+        "slika": "/src/assets/uploads/pellets-stack.webp",
+        "opis": {
+          "mk": "Палети со пелет",
+          "sq": "Paleta me pelet"
+        }
+      },
+      {
+        "slika": "/src/assets/uploads/yard-stacks.webp",
+        "opis": {
+          "mk": "Граѓа подготвена за подигање",
+          "sq": "Lëndë gati për t’u marrë"
+        }
+      }
+    ]
+  },
+  "kontakt": {
+    "naslov": {
+      "mk": "Дојдете или јавете се",
+      "sq": "Ejani ose na telefononi"
+    },
+    "slika": "/src/assets/uploads/yard-mountain.webp"
+  }
+}

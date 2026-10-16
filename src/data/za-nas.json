@@ -1,0 +1,81 @@
+{
+  "seo": {
+    "naslov": {
+      "mk": "За нас – Пилана Роби Бран, Тетово",
+      "sq": "Rreth nesh – Sharra Robi Bran, Tetovë"
+    },
+    "opis": {
+      "mk": "Пилана Роби Бран е семејна пилана во с. Туденце, Тетово, од 2005 година. Сечеме букова граѓа по мерка и произведуваме А1 пелет.",
+      "sq": "Sharra Robi Bran është sharrë familjare në fshatin Tudencë, Tetovë, që nga viti 2005. Presim lëndë ahu sipas masës dhe prodhojmë pelet A1."
+    }
+  },
+  "naslov": {
+    "mk": "За нас",
+    "sq": "Rreth nesh"
+  },
+  "slika": "/src/assets/uploads/saw-log.webp",
+  "prikazna": {
+    "naslov": {
+      "mk": "Семејна пилана од 2005 година.",
+      "sq": "Sharrë familjare që nga viti 2005."
+    },
+    "paragrafi": [
+      {
+        "mk": "Пилана Роби Бран е семејна пилана во с. Туденце, Тетово. Работиме од 2005 година, а денес во пиланата работат две генерации од семејството.",
+        "sq": "Sharra Robi Bran është sharrë familjare në fshatin Tudencë, Tetovë. Punojmë që nga viti 2005 dhe sot në sharrë punojnë dy breza të familjes."
+      },
+      {
+        "mk": "Од почетокот сечеме букова граѓа. Трупците ги избираме сами, а граѓата ја сечеме по мерка: штици, талпи и греди во димензиите што им требаат на купувачите.",
+        "sq": "Që në fillim presim lëndë ahu. Trungjet i zgjedhim vetë, kurse lëndën e presim sipas masës: dërrasa, tabla dhe trarë në përmasat që u nevojiten blerësve."
+      },
+      {
+        "mk": "Со текот на годините почнавме да произведуваме и пелет. Нашиот пелет е со А1 сертификат и се продава во вреќи од 15 kg.",
+        "sq": "Me kalimin e viteve filluam të prodhojmë edhe pelet. Peleti ynë ka certifikatë A1 dhe shitet në thasë 15 kg."
+      },
+      {
+        "mk": "Можете да дојдете директно во пиланата и да ја видите граѓата, или да нарачате преку телефон, а производите ги подигате кај нас.",
+        "sq": "Mund të vini drejtpërdrejt në sharrë dhe ta shihni lëndën, ose të porosisni me telefon, kurse produktet i merrni te ne."
+      }
+    ],
+    "slika": {
+      "slika": "/src/assets/uploads/yard-forklift.webp",
+      "opis": {
+        "mk": "Дворот на пиланата со виљушкар и наредена граѓа",
+        "sq": "Oborri i sharrës me pirun ngritës dhe lëndë të radhitur"
+      }
+    }
+  },
+  "rabota": {
+    "naslov": {
+      "mk": "Како работиме",
+      "sq": "Si punojmë"
+    },
+    "paragrafi": [
+      {
+        "mk": "Секој трупец го проверуваме пред да оди на пилата. Потоа го сечеме во мерките што сте ги побарале и граѓата ја редиме во дворот, подготвена за подигање.",
+        "sq": "Çdo trung e kontrollojmë para se të shkojë në sharrë. Pastaj e presim sipas masave që keni kërkuar dhe lëndën e radhitim në oborr, gati për t’u marrë."
+      },
+      {
+        "mk": "Ако не сте сигурни која мерка ви треба, јавете се. Ќе ви кажеме што е најдобро за вашата работа.",
+        "sq": "Nëse nuk jeni të sigurt cila masë ju duhet, na telefononi. Do t’ju themi çfarë është më e mira për punën tuaj."
+      }
+    ],
+    "slika": {
+      "slika": "/src/assets/uploads/saw-log.webp",
+      "opis": {
+        "mk": "Буков трупец на пилата",
+        "sq": "Trung ahu në sharrë"
+      }
+    }
+  },
+  "povik": {
+    "naslov": {
+      "mk": "Ви треба граѓа или пелет?",
+      "sq": "Ju duhet lëndë apo pelet?"
+    },
+    "tekst": {
+      "mk": "Јавете се или дојдете во пиланата во работното време.",
+      "sq": "Na telefononi ose ejani në sharrë gjatë orarit të punës."
+    }
+  }
+}

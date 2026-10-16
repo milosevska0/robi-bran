@@ -2,15 +2,16 @@
 // Question form. Messages are delivered by Web3Forms (free) to the pilana's e-mail.
 // Set PUBLIC_WEB3FORMS_KEY in a .env file (see README). Visitor's e-mail becomes reply-to.
 import { t, type Lang } from '../i18n/content';
-interface Props { lang: Lang; }
-const { lang } = Astro.props;
+import { fill } from '../lib/site';
+interface Props { lang: Lang; title: string; text: string; }
+const { lang, title, text } = Astro.props;
 const f = t[lang].contactPage;
 const key = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
 ---
 <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST"
-  data-sending={f.sending} data-sent={f.sent} data-error={f.error} data-send={f.send}>
-  <h2>{f.formTitle}</h2>
-  <p>{f.formText}</p>
+  data-sending={f.sending} data-sent={f.sent} data-error={fill(f.error)} data-send={f.send}>
+  <h2>{title}</h2>
+  {text && <p>{text}</p>}
   <input type="hidden" name="access_key" value={key} />
   <input type="hidden" name="subject" value={f.subject} />
   <input type="hidden" name="from_name" value="pilanatetovo.mk" />

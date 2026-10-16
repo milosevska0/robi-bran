@@ -1,12 +1,12 @@
 ---
 // Green photo banner at the top of inner pages, with breadcrumb.
 import Pic from './Pic.astro';
-import { t, routes, type Lang, type PhotoKey } from '../i18n/content';
-interface Props { lang: Lang; title: string; photo: PhotoKey; }
+import { t, routes, type Lang } from '../i18n/content';
+interface Props { lang: Lang; title: string; photo: string; }
 const { lang, title, photo } = Astro.props;
 ---
 <section class="banner parallax">
-  <Pic photo={photo} lang={lang} class="cover" sizes="100vw" eager decorative />
+  <Pic src={photo} class="cover" sizes="100vw" eager />
   <div class="shade-banner"></div>
   <div class="wrap banner-inner">
     <div class="crumbs"><a href={routes.home[lang]}>{t[lang].breadcrumbHome}</a> / {title}</div>

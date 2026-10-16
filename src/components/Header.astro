@@ -1,12 +1,12 @@
 ---
 import Icon from './Icon.astro';
-import { t, routes, business, type Lang, type PageKey } from '../i18n/content';
-interface Props { lang: Lang; page: PageKey; }
-const { lang, page } = Astro.props;
+import { t, routes, type Lang, type PageKey, type Alt } from '../i18n/content';
+import { mainPhone } from '../lib/site';
+interface Props { lang: Lang; page: PageKey; alt: Alt; }
+const { lang, page, alt } = Astro.props;
 const d = t[lang];
 const navKeys = ['home', 'about', 'products', 'gallery', 'contact'] as const;
-const isCurrent = (k: string) => k === page || (k === 'products' && (page === 'beech' || page === 'pellet'));
-const other: Lang = lang === 'mk' ? 'sq' : 'mk';
+const isCurrent = (k: string) => k === page || (k === 'products' && page === 'product');
 ---
 <header class="site-header">
   <div class="wrap header-row">
@@ -20,9 +20,9 @@ const other: Lang = lang === 'mk' ? 'sq' : 'mk';
     </nav>
     <div class="header-side">
       <div class="lang">
-        <a href={routes[page].mk} lang="mk" aria-current={lang === 'mk' ? 'true' : undefined}>МК</a><span aria-hidden="true">/</span><a href={routes[page].sq} lang="sq" aria-current={lang === 'sq' ? 'true' : undefined}>SQ</a>
+        <a href={alt.mk} lang="mk" aria-current={lang === 'mk' ? 'true' : undefined}>МК</a><span aria-hidden="true">/</span><a href={alt.sq} lang="sq" aria-current={lang === 'sq' ? 'true' : undefined}>SQ</a>
       </div>
-      <a class="btn btn-green btn-phone" href={`tel:${business.phone1Tel}`}><Icon name="phone" size={18} />{business.phone1}</a>
+      {mainPhone && <a class="btn btn-green btn-phone" href={`tel:${mainPhone.tel}`}><Icon name="phone" size={18} />{mainPhone.number}</a>}
     </div>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel" aria-label={d.menuOpen} data-open-label={d.menuOpen} data-close-label={d.menuClose}>
       <span class="i-open"><Icon name="menu" size={26} /></span>
@@ -38,9 +38,9 @@ const other: Lang = lang === 'mk' ? 'sq' : 'mk';
       </nav>
       <div class="panel-foot">
         <div class="lang">
-          <a href={routes[page].mk} lang="mk" aria-current={lang === 'mk' ? 'true' : undefined}>Македонски</a><span aria-hidden="true">/</span><a href={routes[page].sq} lang="sq" aria-current={lang === 'sq' ? 'true' : undefined}>Shqip</a>
+          <a href={alt.mk} lang="mk" aria-current={lang === 'mk' ? 'true' : undefined}>Македонски</a><span aria-hidden="true">/</span><a href={alt.sq} lang="sq" aria-current={lang === 'sq' ? 'true' : undefined}>Shqip</a>
         </div>
-        <a class="btn btn-green btn-phone" href={`tel:${business.phone1Tel}`}><Icon name="phone" size={18} />{business.phone1}</a>
+        {mainPhone && <a class="btn btn-green btn-phone" href={`tel:${mainPhone.tel}`}><Icon name="phone" size={18} />{mainPhone.number}</a>}
       </div>
     </div>
   </div>

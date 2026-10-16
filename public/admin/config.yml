@@ -1,0 +1,303 @@
+# Админ панел за pilanatetovo.mk (Decap CMS).
+# Секое поле има македонска (МК) и албанска (SQ) верзија.
+locale: mk
+local_backend: true
+backend:
+  name: github
+  repo: milosevska0/robi-bran
+  branch: main
+  commit_messages:
+    update: 'Админ: измена на {{slug}}'
+    uploadMedia: 'Админ: нова слика {{path}}'
+    deleteMedia: 'Админ: избришана слика {{path}}'
+media_folder: src/assets/uploads
+public_folder: /src/assets/uploads
+site_url: https://www.pilanatetovo.mk
+display_url: https://www.pilanatetovo.mk
+logo_url: /robibran-logo.svg
+
+# Текст на два јазика. Ако SQ е празно, на албанската страна се прикажува МК текстот.
+x-line: &line
+  widget: object
+  collapsed: false
+  fields:
+    - { name: mk, label: 'МК', widget: string }
+    - { name: sq, label: 'SQ', widget: string, required: false }
+x-text: &text
+  widget: object
+  collapsed: false
+  fields:
+    - { name: mk, label: 'МК', widget: text }
+    - { name: sq, label: 'SQ', widget: text, required: false }
+x-line-opt: &lineopt
+  widget: object
+  collapsed: false
+  fields:
+    - { name: mk, label: 'МК', widget: string, required: false }
+    - { name: sq, label: 'SQ', widget: string, required: false }
+x-text-opt: &textopt
+  widget: object
+  collapsed: false
+  fields:
+    - { name: mk, label: 'МК', widget: text, required: false }
+    - { name: sq, label: 'SQ', widget: text, required: false }
+x-seo: &seo
+  name: seo
+  label: 'Google (напредно)'
+  hint: 'Наслов и опис што се гледаат во резултатите на Google. Не мора да се менува. Ако напишете {телефон}, на сајтот се појавува првиот телефонски број.'
+  widget: object
+  collapsed: true
+  fields:
+    - { name: naslov, label: 'Наслов', <<: *lineopt }
+    - { name: opis, label: 'Опис', <<: *textopt }
+x-photo: &photo
+  widget: object
+  collapsed: false
+  fields:
+    - { name: slika, label: 'Слика', widget: image, choose_url: false }
+    - { name: opis, label: 'Што се гледа на сликата (за Google и слепи лица)', <<: *lineopt }
+x-banner: &banner
+  name: slika
+  label: 'Слика во зелениот банер горе'
+  widget: image
+  choose_url: false
+
+collections:
+  - name: podatoci
+    label: 'Контакт и известување'
+    editor: { preview: false }
+    files:
+      - name: kontakt
+        label: 'Контакт податоци'
+        file: src/data/kontakt.json
+        fields:
+          - name: telefoni
+            label: 'Телефони'
+            label_singular: 'телефон'
+            hint: 'Првиот број се користи на копчињата „Јавете се“. Ако избришете број, исчезнува од целиот сајт.'
+            widget: list
+            min: 0
+            summary: '{{fields.broj}}'
+            fields:
+              - { name: broj, label: 'Број', widget: string, hint: 'На пр. 070 395 033' }
+          - { name: email, label: 'Е-пошта', widget: string, required: false, hint: 'Оставете празно за да не се прикажува.' }
+          - { name: adresa, label: 'Адреса', <<: *line }
+          - name: rabotnoVreme
+            label: 'Работно време'
+            label_singular: 'ред'
+            widget: list
+            min: 0
+            summary: '{{fields.od}} – {{fields.do}}'
+            fields:
+              - name: denovi
+                label: 'Денови'
+                widget: select
+                multiple: true
+                options:
+                  - { label: 'Понеделник', value: mon }
+                  - { label: 'Вторник', value: tue }
+                  - { label: 'Среда', value: wed }
+                  - { label: 'Четврток', value: thu }
+                  - { label: 'Петок', value: fri }
+                  - { label: 'Сабота', value: sat }
+                  - { label: 'Недела', value: sun }
+              - { name: od, label: 'Од', widget: string, hint: 'На пр. 08:00' }
+              - { name: do, label: 'До', widget: string, hint: 'На пр. 16:00' }
+          - { name: facebook, label: 'Facebook линк', widget: string, required: false }
+      - name: izvestuvanje
+        label: 'Известување (лента на врвот)'
+        file: src/data/izvestuvanje.json
+        fields:
+          - { name: vkluceno, label: 'Прикажи го известувањето', widget: boolean }
+          - { name: tekst, label: 'Текст', hint: 'На пр. „Пелетот е распродаден, нова тура од 1 ноември.“', <<: *lineopt }
+
+  - name: strani
+    label: 'Страни'
+    editor: { preview: false }
+    files:
+      - name: pocetna
+        label: 'Почетна'
+        file: src/data/pocetna.json
+        fields:
+          - { name: glavnaSlika, label: 'Главна слика', <<: *photo }
+          - { name: heroTekst, label: 'Реченица под името', <<: *line }
+          - name: prikazna
+            label: 'Приказна (зелена лента)'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: tekst, label: 'Текст', <<: *text }
+              - { name: slika, label: 'Слика во позадина', widget: image, choose_url: false }
+          - name: proizvodi
+            label: 'Секција Производи'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: tekst, label: 'Текст', <<: *line }
+          - name: galerija
+            label: 'Секција Галерија'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - name: sliki
+                label: 'Сликите (точно 5)'
+                label_singular: 'слика'
+                widget: list
+                min: 5
+                max: 5
+                summary: '{{fields.opis.mk}}'
+                fields:
+                  - { name: slika, label: 'Слика', widget: image, choose_url: false }
+                  - { name: opis, label: 'Што се гледа на сликата', <<: *lineopt }
+          - name: kontakt
+            label: 'Секција Контакт'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: slika, label: 'Слика во позадина', widget: image, choose_url: false, hint: 'Истата слика се користи и во зелените ленти на дното од страните За нас и Производи.' }
+          - *seo
+      - name: vrednosti
+        label: 'Нашите вредности'
+        file: src/data/vrednosti.json
+        fields:
+          - { name: naslov, label: 'Наслов', <<: *line }
+          - name: stavki
+            label: 'Вредности'
+            label_singular: 'вредност'
+            widget: list
+            summary: '{{fields.naslov.mk}}'
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: tekst, label: 'Текст', <<: *text }
+      - name: proizvodi
+        label: 'Производи'
+        file: src/data/proizvodi.json
+        fields:
+          - name: proizvodi
+            label: 'Производи'
+            label_singular: 'производ'
+            hint: 'Секој производ има своја страна. Ако избришете производ, исчезнува неговата страна и картичката на почетна.'
+            widget: list
+            summary: '{{fields.ime.mk}}'
+            fields:
+              - { name: ime, label: 'Име', <<: *line }
+              - name: adresa
+                label: 'Адреса на страната'
+                hint: 'Само мали латинични букви и цртички, на пр. bukova-grada. Не менувајте кај постоечки производи (Google ја памети адресата).'
+                widget: object
+                collapsed: true
+                fields:
+                  - { name: mk, label: 'МК', widget: string, pattern: ['^[a-z0-9-]+$', 'Само мали латинични букви, бројки и цртички'] }
+                  - { name: sq, label: 'SQ', widget: string, pattern: ['^[a-z0-9-]+$', 'Само мали латинични букви, бројки и цртички'] }
+              - { name: kratokOpis, label: 'Краток опис (почетна)', <<: *line }
+              - { name: opis, label: 'Опис (страна Производи)', <<: *text }
+              - name: stavki
+                label: 'Кратки ставки (страна Производи)'
+                label_singular: 'ставка'
+                widget: list
+                summary: '{{fields.mk}}'
+                fields:
+                  - { name: mk, label: 'МК', widget: string }
+                  - { name: sq, label: 'SQ', widget: string }
+              - { name: linkTekst, label: 'Текст на линкот (страна Производи)', hint: 'На пр. „Повеќе за пелетот“. Ако е празно, пишува „Повеќе“.', <<: *lineopt }
+              - { name: tekstNaStrana, label: 'Текст на страната на производот', <<: *text }
+              - name: detali
+                label: 'Табела со детали'
+                label_singular: 'ред'
+                widget: list
+                summary: '{{fields.naslov.mk}}: {{fields.vrednost.mk}}'
+                fields:
+                  - { name: naslov, label: 'Наслов', <<: *line }
+                  - { name: vrednost, label: 'Вредност', <<: *line }
+              - name: sliki
+                label: 'Слики (првата е главна)'
+                label_singular: 'слика'
+                widget: list
+                min: 1
+                summary: '{{fields.opis.mk}}'
+                fields:
+                  - { name: slika, label: 'Слика', widget: image, choose_url: false }
+                  - { name: opis, label: 'Што се гледа на сликата', <<: *lineopt }
+              - *seo
+          - { name: naslov, label: 'Наслов на страната Производи', <<: *line }
+          - *banner
+          - { name: voved, label: 'Вовед', <<: *text }
+          - { name: nacinNaslov, label: 'Наслов „Како да нарачате“', <<: *line }
+          - name: cekori
+            label: 'Чекори за нарачка'
+            label_singular: 'чекор'
+            widget: list
+            summary: '{{fields.naslov.mk}}'
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: tekst, label: 'Текст', <<: *line }
+          - name: povik
+            label: 'Зелена лента на дното'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: tekst, label: 'Текст', <<: *line }
+          - *seo
+      - name: za-nas
+        label: 'За нас'
+        file: src/data/za-nas.json
+        fields:
+          - { name: naslov, label: 'Наслов', <<: *line }
+          - *banner
+          - name: prikazna
+            label: 'Приказна'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: paragrafi, label: 'Пасуси', label_singular: 'пасус', widget: list, summary: '{{fields.mk}}', fields: [{ name: mk, label: 'МК', widget: text }, { name: sq, label: 'SQ', widget: text }] }
+              - { name: slika, label: 'Слика', <<: *photo }
+          - name: rabota
+            label: 'Како работиме'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: paragrafi, label: 'Пасуси', label_singular: 'пасус', widget: list, summary: '{{fields.mk}}', fields: [{ name: mk, label: 'МК', widget: text }, { name: sq, label: 'SQ', widget: text }] }
+              - { name: slika, label: 'Слика', <<: *photo }
+          - name: povik
+            label: 'Зелена лента на дното'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: tekst, label: 'Текст', <<: *line }
+          - *seo
+      - name: galerija
+        label: 'Галерија'
+        file: src/data/galerija.json
+        fields:
+          - { name: naslov, label: 'Наслов', <<: *line }
+          - *banner
+          - name: sliki
+            label: 'Слики'
+            label_singular: 'слика'
+            hint: 'Влечете за да го смените редоследот.'
+            widget: list
+            summary: '{{fields.opis.mk}}'
+            fields:
+              - { name: slika, label: 'Слика', widget: image, choose_url: false }
+              - name: kategorija
+                label: 'Категорија'
+                widget: select
+                options:
+                  - { label: 'Граѓа', value: grada }
+                  - { label: 'Пелет', value: pelet }
+                  - { label: 'Пилана', value: pilana }
+              - { name: opis, label: 'Што се гледа на сликата', <<: *lineopt }
+          - *seo
+      - name: kontakt-strana
+        label: 'Контакт страна'
+        file: src/data/kontakt-strana.json
+        fields:
+          - { name: naslov, label: 'Наслов', <<: *line }
+          - *banner
+          - name: formular
+            label: 'Формулар'
+            widget: object
+            fields:
+              - { name: naslov, label: 'Наслов', <<: *line }
+              - { name: tekst, label: 'Текст', <<: *text }
+          - *seo

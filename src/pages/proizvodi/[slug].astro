@@ -1,0 +1,9 @@
+---
+// One page per product from the admin panel (src/data/proizvodi.json).
+import V from '../../views/ProductDetail.astro';
+import { products } from '../../lib/site';
+export function getStaticPaths() {
+  return products.filter((p) => p.adresa?.mk).map((p) => ({ params: { slug: p.adresa.mk }, props: { product: p } }));
+}
+---
+<V lang="mk" product={Astro.props.product} />

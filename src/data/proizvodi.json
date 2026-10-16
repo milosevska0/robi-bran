@@ -1,0 +1,305 @@
+{
+  "seo": {
+    "naslov": {
+      "mk": "Производи – букова граѓа и А1 пелет | Пилана Роби Бран",
+      "sq": "Produkte – lëndë ahu dhe pelet A1 | Sharra Robi Bran"
+    },
+    "opis": {
+      "mk": "Букова граѓа сечена по мерка (штици, талпи, греди) и сертифициран А1 пелет во вреќи од 15 kg. Подигање од пиланата во с. Туденце, Тетово.",
+      "sq": "Lëndë ahu e prerë sipas masës (dërrasa, tabla, trarë) dhe pelet i certifikuar A1 në thasë 15 kg. Merret në sharrë, fsh. Tudencë, Tetovë."
+    }
+  },
+  "naslov": {
+    "mk": "Производи",
+    "sq": "Produkte"
+  },
+  "slika": "/src/assets/uploads/lumber-stacks.webp",
+  "voved": {
+    "mk": "Граѓата ја сечеме по ваша мерка, а пелетот го продаваме во вреќи. Сите производи се подигаат директно од пиланата.",
+    "sq": "Lëndën e presim sipas masës suaj, kurse peletin e shesim në thasë. Të gjitha produktet merren drejtpërdrejt në sharrë."
+  },
+  "proizvodi": [
+    {
+      "ime": {
+        "mk": "Букова граѓа",
+        "sq": "Lëndë ahu"
+      },
+      "adresa": {
+        "mk": "bukova-grada",
+        "sq": "lende-ahu"
+      },
+      "kratokOpis": {
+        "mk": "Штици, талпи и греди од бука, исечени по ваша мерка.",
+        "sq": "Dërrasa, tabla dhe trarë ahu, të prera sipas masës suaj."
+      },
+      "opis": {
+        "mk": "Тврдо и цврсто дрво за мебел, столарија и градба.",
+        "sq": "Dru i fortë dhe i qëndrueshëm për mobilje, zdrukthëtari dhe ndërtim."
+      },
+      "stavki": [
+        {
+          "mk": "Штици, талпи и греди",
+          "sq": "Dërrasa, tabla dhe trarë"
+        },
+        {
+          "mk": "Сечење по ваша мерка",
+          "sq": "Prerje sipas masës suaj"
+        }
+      ],
+      "linkTekst": {
+        "mk": "Повеќе за буковата граѓа",
+        "sq": "Më shumë për lëndën e ahut"
+      },
+      "tekstNaStrana": {
+        "mk": "Буката е тврдо и цврсто дрво, добро за мебел, столарија, скали и градба. Ја сечеме по мерката што ви треба.",
+        "sq": "Ahu është dru i fortë dhe i qëndrueshëm, i mirë për mobilje, zdrukthëtari, shkallë dhe ndërtim. E presim sipas masës që ju duhet."
+      },
+      "detali": [
+        {
+          "naslov": {
+            "mk": "Што сечеме",
+            "sq": "Çfarë presim"
+          },
+          "vrednost": {
+            "mk": "Штици, талпи и греди",
+            "sq": "Dërrasa, tabla dhe trarë"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Димензии",
+            "sq": "Përmasat"
+          },
+          "vrednost": {
+            "mk": "По ваша мерка: кажете ни должина, ширина и дебелина",
+            "sq": "Sipas masës suaj: na tregoni gjatësinë, gjerësinë dhe trashësinë"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Цена",
+            "sq": "Çmimi"
+          },
+          "vrednost": {
+            "mk": "Според мерката и количината, по договор",
+            "sq": "Sipas masës dhe sasisë, me marrëveshje"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Подигање",
+            "sq": "Marrja"
+          },
+          "vrednost": {
+            "mk": "Од пиланата во с. Туденце, Тетово",
+            "sq": "Në sharrë, fsh. Tudencë, Tetovë"
+          }
+        }
+      ],
+      "sliki": [
+        {
+          "slika": "/src/assets/uploads/lumber-stacks.webp",
+          "opis": {
+            "mk": "Наредени букови штици",
+            "sq": "Dërrasa ahu të radhitura"
+          }
+        },
+        {
+          "slika": "/src/assets/uploads/lumber-stacks2.webp",
+          "opis": {
+            "mk": "Наредена букова граѓа",
+            "sq": "Lëndë ahu e radhitur"
+          }
+        },
+        {
+          "slika": "/src/assets/uploads/lumber-beams.webp",
+          "opis": {
+            "mk": "Букови греди наредени во дворот",
+            "sq": "Trarë ahu të radhitur në oborr"
+          }
+        },
+        {
+          "slika": "/src/assets/uploads/yard-stacks.webp",
+          "opis": {
+            "mk": "Граѓа подготвена за подигање",
+            "sq": "Lëndë gati për t’u marrë"
+          }
+        }
+      ],
+      "seo": {
+        "naslov": {
+          "mk": "Букова граѓа по мерка, Тетово | Пилана Роби Бран",
+          "sq": "Lëndë ahu sipas masës, Tetovë | Sharra Robi Bran"
+        },
+        "opis": {
+          "mk": "Букови штици, талпи и греди сечени по ваша мерка. Пилана Роби Бран, с. Туденце, Тетово. Јавете се за цена: {телефон}.",
+          "sq": "Dërrasa, tabla dhe trarë ahu të prera sipas masës suaj. Sharra Robi Bran, fsh. Tudencë, Tetovë. Telefononi për çmim: {телефон}."
+        }
+      }
+    },
+    {
+      "ime": {
+        "mk": "А1 пелет",
+        "sq": "Pelet A1"
+      },
+      "adresa": {
+        "mk": "a1-pelet",
+        "sq": "pelet-a1"
+      },
+      "kratokOpis": {
+        "mk": "Сертифициран пелет во вреќи од 15 kg.",
+        "sq": "Pelet i certifikuar në thasë 15 kg."
+      },
+      "opis": {
+        "mk": "Сертифициран пелет од 100% дрво за печки и котли на пелет.",
+        "sq": "Pelet i certifikuar prej 100% druri për stufa dhe kaldaja me pelet."
+      },
+      "stavki": [
+        {
+          "mk": "Вреќи од 15 kg",
+          "sq": "Thasë 15 kg"
+        },
+        {
+          "mk": "Подигање од пиланата",
+          "sq": "Merret në sharrë"
+        }
+      ],
+      "linkTekst": {
+        "mk": "Повеќе за пелетот",
+        "sq": "Më shumë për peletin"
+      },
+      "tekstNaStrana": {
+        "mk": "Нашиот пелет е произведен од 100% дрво и е со А1 сертификат. Погоден е за печки и котли на пелет.",
+        "sq": "Peleti ynë është prodhuar prej 100% druri dhe ka certifikatë A1. Është i përshtatshëm për stufa dhe kaldaja me pelet."
+      },
+      "detali": [
+        {
+          "naslov": {
+            "mk": "Сертификат",
+            "sq": "Certifikata"
+          },
+          "vrednost": {
+            "mk": "А1",
+            "sq": "A1"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Пакување",
+            "sq": "Paketimi"
+          },
+          "vrednost": {
+            "mk": "Вреќи од 15 kg",
+            "sq": "Thasë 15 kg"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Цена",
+            "sq": "Çmimi"
+          },
+          "vrednost": {
+            "mk": "Според количината, по договор",
+            "sq": "Sipas sasisë, me marrëveshje"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Подигање",
+            "sq": "Marrja"
+          },
+          "vrednost": {
+            "mk": "Од пиланата во с. Туденце, Тетово",
+            "sq": "Në sharrë, fsh. Tudencë, Tetovë"
+          }
+        }
+      ],
+      "sliki": [
+        {
+          "slika": "/src/assets/uploads/pellets-bags.webp",
+          "opis": {
+            "mk": "Вреќи А1 пелет Роби Бран",
+            "sq": "Thasë me pelet A1 Robi Bran"
+          }
+        },
+        {
+          "slika": "/src/assets/uploads/pellets-pallets.webp",
+          "opis": {
+            "mk": "Наредени палети пелет",
+            "sq": "Paleta pelet të radhitura"
+          }
+        },
+        {
+          "slika": "/src/assets/uploads/pellets-closeup.webp",
+          "opis": {
+            "mk": "Вреќи пелет од 15 kg",
+            "sq": "Thasë pelet 15 kg"
+          }
+        },
+        {
+          "slika": "/src/assets/uploads/pellets-warehouse.webp",
+          "opis": {
+            "mk": "Пелет во магацинот",
+            "sq": "Pelet në magazinë"
+          }
+        }
+      ],
+      "seo": {
+        "naslov": {
+          "mk": "А1 пелет во вреќи од 15 kg, Тетово | Пилана Роби Бран",
+          "sq": "Pelet A1 në thasë 15 kg, Tetovë | Sharra Robi Bran"
+        },
+        "opis": {
+          "mk": "Сертифициран А1 пелет од 100% дрво во вреќи од 15 kg. Подигање од пиланата во с. Туденце, Тетово. Јавете се: {телефон}.",
+          "sq": "Pelet i certifikuar A1 prej 100% druri në thasë 15 kg. Merret në sharrë, fsh. Tudencë, Tetovë. Telefononi: {телефон}."
+        }
+      }
+    }
+  ],
+  "nacinNaslov": {
+    "mk": "Како да нарачате",
+    "sq": "Si të porosisni"
+  },
+  "cekori": [
+    {
+      "naslov": {
+        "mk": "Јавете се",
+        "sq": "Na telefononi"
+      },
+      "tekst": {
+        "mk": "Кажете ни што ви треба: вид на дрво, мерки и количина.",
+        "sq": "Na tregoni çfarë ju duhet: lloji i drurit, masat dhe sasia."
+      }
+    },
+    {
+      "naslov": {
+        "mk": "Договор за цена и рок",
+        "sq": "Marrëveshje për çmimin dhe afatin"
+      },
+      "tekst": {
+        "mk": "Ви кажуваме цена и кога граѓата ќе биде исечена.",
+        "sq": "Ju themi çmimin dhe kur do të jetë e prerë lënda."
+      }
+    },
+    {
+      "naslov": {
+        "mk": "Подигање од пиланата",
+        "sq": "Marrja në sharrë"
+      },
+      "tekst": {
+        "mk": "Ја подигате граѓата или пелетот во пиланата во работното време.",
+        "sq": "Lëndën ose peletin e merrni në sharrë gjatë orarit të punës."
+      }
+    }
+  ],
+  "povik": {
+    "naslov": {
+      "mk": "Прашајте за цена",
+      "sq": "Pyetni për çmimin"
+    },
+    "tekst": {
+      "mk": "Цената зависи од видот на дрвото, мерката и количината.",
+      "sq": "Çmimi varet nga lloji i drurit, masa dhe sasia."
+    }
+  }
+}

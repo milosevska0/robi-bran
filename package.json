@@ -6,10 +6,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "admin": "decap-server"
   },
   "dependencies": {
     "astro": "5.18.2",
     "@astrojs/sitemap": "3.7.4"
+  },
+  "devDependencies": {
+    "decap-server": "3.3.1"
   }
 }

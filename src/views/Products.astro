@@ -3,44 +3,44 @@ import Base from '../layouts/Base.astro';
 import Banner from '../components/Banner.astro';
 import Pic from '../components/Pic.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { t, routes, type Lang } from '../i18n/content';
+import { t, type Lang } from '../i18n/content';
+import { data, products, productPath, L } from '../lib/site';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const d = t[lang];
-const p = d.productsPage;
-const items = [
-  { key: 'beech' as const, photo: 'lumberStacks' as const, href: routes.beech[lang] },
-  { key: 'pellet' as const, photo: 'pelletsBags' as const, href: routes.pellet[lang] },
-];
+const p = data.proizvodi;
+const steps = (p.cekori ?? []).filter((s) => L(s.naslov, lang) || L(s.tekst, lang));
 ---
-<Base lang={lang} page="products" title={p.title} description={p.description}>
-  <Banner lang={lang} title={p.heading} photo="lumberStacks" />
+<Base lang={lang} page="products" title={L(p.seo?.naslov, lang)} description={L(p.seo?.opis, lang)}>
+  <Banner lang={lang} title={L(p.naslov, lang)} photo={p.slika} />
 
   <section class="wrap section">
-    <p class="text center" style="max-width: 760px; margin: 0 auto 56px; font-size: 1.1em;">{p.intro}</p>
+    <p class="text center" style="max-width: 760px; margin: 0 auto 56px; font-size: 1.1em;">{L(p.voved, lang)}</p>
     <div class="cards">
-      {items.map((i) => (
+      {products.map((i) => (
         <article class="card">
-          <Pic photo={i.photo} lang={lang} alt={d.products[i.key].alt} />
-          <h2>{d.products[i.key].name}</h2>
-          <p>{d.products[i.key].lead}</p>
-          <ul class="grow">{d.products[i.key].bullets.map((b) => <li>{b}</li>)}</ul>
-          <a class="link" href={i.href}>{d.products[i.key].moreLink}</a>
+          <Pic src={i.sliki?.[0]?.slika} alt={L(i.sliki?.[0]?.opis, lang)} />
+          <h2>{L(i.ime, lang)}</h2>
+          <p>{L(i.opis, lang)}</p>
+          <ul class="grow">{(i.stavki ?? []).map((b) => L(b, lang)).filter(Boolean).map((b) => <li>{b}</li>)}</ul>
+          <a class="link" href={productPath(i, lang)}>{L(i.linkTekst, lang) || d.more}</a>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="stone">
-    <div class="wrap section">
-      <h2 class="center" style="font-size: 32px; margin-bottom: 32px;">{p.howTitle}</h2>
-      <ol class="steps">
-        {p.steps.map((s, i) => (
-          <li><strong>{i + 1}. {s.title}</strong><p>{s.text}</p></li>
-        ))}
-      </ol>
-    </div>
-  </section>
+  {steps.length > 0 && (
+    <section class="stone">
+      <div class="wrap section">
+        <h2 class="center" style="font-size: 32px; margin-bottom: 32px;">{L(p.nacinNaslov, lang)}</h2>
+        <ol class="steps">
+          {steps.map((s, i) => (
+            <li><strong>{i + 1}. {L(s.naslov, lang)}</strong><p>{L(s.tekst, lang)}</p></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )}
 
-  <CtaBand lang={lang} title={p.ctaTitle} text={p.ctaText} />
+  <CtaBand lang={lang} title={L(p.povik.naslov, lang)} text={L(p.povik.tekst, lang)} />
 </Base>

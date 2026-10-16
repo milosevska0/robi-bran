@@ -1,0 +1,27 @@
+{
+  "seo": {
+    "naslov": {
+      "mk": "Контакт – Пилана Роби Бран, с. Туденце, Тетово",
+      "sq": "Kontakt – Sharra Robi Bran, fsh. Tudencë, Tetovë"
+    },
+    "opis": {
+      "mk": "Адреса, телефони и работно време на Пилана Роби Бран во с. Туденце, Тетово. Пишете ни прашање преку формуларот.",
+      "sq": "Adresa, telefonat dhe orari i punës i Sharrës Robi Bran në fshatin Tudencë, Tetovë. Na shkruani pyetjen tuaj përmes formularit."
+    }
+  },
+  "naslov": {
+    "mk": "Контакт",
+    "sq": "Kontakt"
+  },
+  "slika": "/src/assets/uploads/yard-mountain.webp",
+  "formular": {
+    "naslov": {
+      "mk": "Пишете ни",
+      "sq": "Na shkruani"
+    },
+    "tekst": {
+      "mk": "Прашајте за мерки, цена или достапност. Ќе ви одговориме на е-пошта или телефон.",
+      "sq": "Pyetni për masat, çmimin ose disponueshmërinë. Do t’ju përgjigjemi me e-mail ose telefon."
+    }
+  }
+}

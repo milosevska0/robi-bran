@@ -1,55 +1,59 @@
 ---
-// One product page (used for beech lumber and for pellets).
+// One product page. Pages are made automatically for every product in the admin panel.
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import Icon from '../components/Icon.astro';
-import { t, routes, business, type Lang, type PhotoKey } from '../i18n/content';
-interface Props { lang: Lang; product: 'beech' | 'pellet'; }
+import { t, routes, type Lang } from '../i18n/content';
+import { products, productPath, productAlt, mainPhone, L, type Product } from '../lib/site';
+interface Props { lang: Lang; product: Product; }
 const { lang, product } = Astro.props;
 const d = t[lang];
-const info = d.products[product];
-const page = product === 'beech' ? d.beechPage : d.pelletPage;
-const photosFor: Record<'beech' | 'pellet', PhotoKey[]> = {
-  beech: ['lumberStacks', 'lumberStacks2', 'lumberBeams', 'yardStacks'],
-  pellet: ['pelletsBags', 'pelletsPallets', 'pelletsCloseup', 'pelletsWarehouse'],
-};
-const [main, ...thumbs] = photosFor[product];
-const other = product === 'beech' ? 'pellet' : 'beech';
-const otherPhoto: PhotoKey = other === 'beech' ? 'lumberStacks' : 'pelletsBags';
+const name = L(product.ime, lang);
+const [main, ...thumbs] = (product.sliki ?? []).filter((s) => s.slika);
+const specs = (product.detali ?? []).map((r) => [L(r.naslov, lang), L(r.vrednost, lang)]).filter(([k, v]) => k || v);
+const others = products.filter((p) => p !== product);
 ---
-<Base lang={lang} page={product} title={page.title} description={page.description}>
+<Base lang={lang} page="product" title={L(product.seo?.naslov, lang) || name} description={L(product.seo?.opis, lang) || L(product.kratokOpis, lang)} alt={productAlt(product)}>
   <div class="wrap">
-    <div class="crumbs-dark"><a href={routes.home[lang]}>{d.breadcrumbHome}</a> / <a href={routes.products[lang]}>{d.nav.products}</a> / {info.name}</div>
+    <div class="crumbs-dark"><a href={routes.home[lang]}>{d.breadcrumbHome}</a> / <a href={routes.products[lang]}>{d.nav.products}</a> / {name}</div>
     <section class="detail">
       <div class="detail-photos">
-        <Pic photo={main} lang={lang} eager alt={info.alt} />
-        <div class="thumbs">
-          {thumbs.map((p) => <Pic photo={p} lang={lang} sizes="(max-width: 700px) 33vw, 200px" />)}
-        </div>
+        {main && <Pic src={main.slika} eager alt={L(main.opis, lang)} />}
+        {thumbs.length > 0 && (
+          <div class="thumbs">
+            {thumbs.slice(0, 3).map((p) => <Pic src={p.slika} alt={L(p.opis, lang)} sizes="(max-width: 700px) 33vw, 200px" />)}
+          </div>
+        )}
       </div>
       <div class="detail-text">
-        <h1>{info.name}</h1>
-        <p>{page.intro}</p>
-        <dl class="specs">
-          {page.specs.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
-        </dl>
-        <div class="btns btns-2">
-          <a class="btn btn-green" href={`tel:${business.phone1Tel}`}><Icon name="phone" /><span class="only-lg">{d.callForPrice}</span><span class="only-sm">{d.call}</span></a>
+        <h1>{name}</h1>
+        <p>{L(product.tekstNaStrana, lang)}</p>
+        {specs.length > 0 && (
+          <dl class="specs">
+            {specs.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+          </dl>
+        )}
+        <div class={`btns ${mainPhone ? 'btns-2' : ''}`}>
+          {mainPhone && <a class="btn btn-green" href={`tel:${mainPhone.tel}`}><Icon name="phone" /><span class="only-lg">{d.callForPrice}</span><span class="only-sm">{d.call}</span></a>}
           <a class="btn btn-outline" href={routes.contact[lang]}>{d.writeUs}</a>
         </div>
       </div>
     </section>
   </div>
 
-  <section class="stone">
-    <div class="wrap section">
-      <h2 style="font-size: 32px; margin-bottom: 28px;">{d.otherProducts}</h2>
-      <div class="others">
-        <a class="other" href={routes[other][lang]}>
-          <Pic photo={otherPhoto} lang={lang} sizes="200px" decorative />
-          <div style="padding-right: 20px;"><strong>{d.products[other].name}</strong><span>{d.products[other].short}</span></div>
-        </a>
+  {others.length > 0 && (
+    <section class="stone">
+      <div class="wrap section">
+        <h2 style="font-size: 32px; margin-bottom: 28px;">{d.otherProducts}</h2>
+        <div class="others">
+          {others.map((o) => (
+            <a class="other" href={productPath(o, lang)}>
+              <Pic src={o.sliki?.[0]?.slika} sizes="200px" />
+              <div style="padding-right: 20px;"><strong>{L(o.ime, lang)}</strong><span>{L(o.kratokOpis, lang)}</span></div>
+            </a>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 </Base>

@@ -5,22 +5,24 @@ import ContactInfo from '../components/ContactInfo.astro';
 import MapEmbed from '../components/MapEmbed.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { t, business, type Lang } from '../i18n/content';
+import { data, L } from '../lib/site';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const d = t[lang];
-const c = d.contactPage;
+const c = data.kontaktStrana;
+const fb = data.kontakt.facebook?.trim();
 ---
-<Base lang={lang} page="contact" title={c.title} description={c.description}>
-  <Banner lang={lang} title={c.heading} photo="yardMountain" />
+<Base lang={lang} page="contact" title={L(c.seo?.naslov, lang)} description={L(c.seo?.opis, lang)}>
+  <Banner lang={lang} title={L(c.naslov, lang)} photo={c.slika} />
   <section class="wrap section contact-page">
     <div class="contact-col">
-      <h2 class="green">{d.home.contactTitle}</h2>
+      <h2 class="green">{L(data.pocetna.kontakt.naslov, lang)}</h2>
       <ContactInfo lang={lang} />
-      <a class="link" href={business.facebook} target="_blank" rel="noopener">{d.followFb}</a>
+      {fb && <a class="link" href={fb} target="_blank" rel="noopener">{d.followFb}</a>}
       <div style="height: 360px;"><MapEmbed lang={lang} /></div>
       <a class="btn btn-green" style="align-self: flex-start;" href={business.mapsLink} target="_blank" rel="noopener">{d.openMaps}</a>
     </div>
-    <ContactForm lang={lang} />
+    <ContactForm lang={lang} title={L(c.formular.naslov, lang)} text={L(c.formular.tekst, lang)} />
   </section>
 </Base>
 
