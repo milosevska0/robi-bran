@@ -96,7 +96,7 @@ const ld = {
           if (!img) continue;
           // -1 when the section enters at the bottom, 0 in the middle, 1 when it leaves at the top
           const p = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
-          img.style.transform = `translate3d(0, ${(p * r.height * 0.12).toFixed(1)}px, 0)`;
+          img.style.transform = `translate3d(0, ${(p * r.height * 0.25).toFixed(1)}px, 0)`;
         }
       };
       const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
