@@ -41,14 +41,8 @@ Every text is `{ "mk": "...", "sq": "..." }`; if `sq` is empty the Macedonian te
 Write `{телефон}` in a text to insert the first phone number (if there is no phone, that sentence is left out).
 Photos are resized to 800/1600 px WebP automatically when the site is built.
 
-**Try the admin panel on your computer** (two terminals):
-
-```bash
-npm run admin      # local admin server, saves straight to the files
-npm run dev
-```
-
-Open http://localhost:4321/admin/ and click the login button. Changes are written to `src/data/` on your computer.
+**Try the admin panel on your computer:** run `npm run dev`, open http://localhost:4321/admin/
+and click „Најава“. The local admin server starts by itself; changes are written to `src/data/` on your computer.
 
 **On the live site** the panel needs a login. This is set up when the site goes on Netlify
 (see "Before going live").

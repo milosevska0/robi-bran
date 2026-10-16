@@ -1,7 +1,8 @@
 # Админ панел за pilanatetovo.mk (Decap CMS).
 # Секое поле има македонска (МК) и албанска (SQ) верзија.
 locale: mk
-local_backend: true
+local_backend:
+  url: /api/v1/
 backend:
   name: github
   repo: milosevska0/robi-bran
