@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.pilanatetovo.com/sitemap-index.xml
+Sitemap: https://www.pilanatetovo.mk/sitemap-index.xml

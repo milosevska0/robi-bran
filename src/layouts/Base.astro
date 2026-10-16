@@ -6,7 +6,7 @@ import '../styles/global.css';
 
 interface Props { lang: Lang; page: PageKey; title: string; description: string; }
 const { lang, page, title, description } = Astro.props;
-const site = Astro.site ?? new URL('https://www.pilanatetovo.com');
+const site = Astro.site ?? new URL('https://www.pilanatetovo.mk');
 const url = (p: string) => new URL(p, site).href;
 const d = t[lang];
 
