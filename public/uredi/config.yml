@@ -155,7 +155,7 @@ collections:
             widget: object
             fields:
               - { name: naslov, label: 'Наслов', <<: *line }
-              - { name: slika, label: 'Слика во позадина', widget: image, choose_url: false, hint: 'Истата слика се користи и во зелените ленти на дното од страните За нас и Производи.' }
+              - { name: slika, label: 'Слика во позадина', widget: image, choose_url: false, }
           - *seo
       - name: vrednosti
         label: 'Нашите вредности'
@@ -238,6 +238,7 @@ collections:
             fields:
               - { name: naslov, label: 'Наслов', <<: *line }
               - { name: tekst, label: 'Текст', <<: *line }
+              - { name: slika, label: 'Слика во позадина', widget: image, choose_url: false }
           - *seo
       - name: za-nas
         label: 'За нас'
@@ -265,6 +266,7 @@ collections:
             fields:
               - { name: naslov, label: 'Наслов', <<: *line }
               - { name: tekst, label: 'Текст', <<: *line }
+              - { name: slika, label: 'Слика во позадина', widget: image, choose_url: false }
           - *seo
       - name: galerija
         label: 'Галерија'

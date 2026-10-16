@@ -300,6 +300,7 @@
     "tekst": {
       "mk": "Цената зависи од видот на дрвото, мерката и количината.",
       "sq": "Çmimi varet nga lloji i drurit, masa dhe sasia."
-    }
+    },
+    "slika": "/src/assets/uploads/sawing-board.webp"
   }
 }

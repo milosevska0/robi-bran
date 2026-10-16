@@ -4,12 +4,12 @@ import Pic from './Pic.astro';
 import Icon from './Icon.astro';
 import { t, routes, type Lang } from '../i18n/content';
 import { data, mainPhone } from '../lib/site';
-interface Props { lang: Lang; title: string; text: string; }
-const { lang, title, text } = Astro.props;
+interface Props { lang: Lang; title: string; text: string; photo?: string; }
+const { lang, title, text, photo } = Astro.props;
 const d = t[lang];
 ---
 <section class="band cta parallax">
-  <Pic src={data.pocetna.kontakt.slika} class="cover" sizes="100vw" />
+  <Pic src={photo || data.pocetna.kontakt.slika} class="cover" sizes="100vw" />
   <div class="shade-strong"></div>
   <div class="narrow band-inner">
     <h2>{title}</h2>

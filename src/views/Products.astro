@@ -42,5 +42,5 @@ const steps = (p.cekori ?? []).filter((s) => L(s.naslov, lang) || L(s.tekst, lan
     </section>
   )}
 
-  <CtaBand lang={lang} title={L(p.povik.naslov, lang)} text={L(p.povik.tekst, lang)} />
+  <CtaBand lang={lang} title={L(p.povik.naslov, lang)} text={L(p.povik.tekst, lang)} photo={p.povik.slika} />
 </Base>
