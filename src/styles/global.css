@@ -356,6 +356,6 @@ main { position: relative; isolation: isolate; }
 main::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: url(/wood-grain.svg) center top / 800px auto repeat;
-  opacity: var(--grain, 0.10);
+  opacity: var(--grain, 0.08);
 }
 @media (max-width: 700px) { main::before { background-size: 560px auto; } }
