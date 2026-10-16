@@ -71,6 +71,7 @@ const ld = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
     <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    <script is:inline>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-motion');</script>
   </head>
   <body>
     <a class="skip" href="#main">{lang === 'mk' ? 'Прескокни до содржината' : 'Kalo te përmbajtja'}</a>
@@ -80,14 +81,46 @@ const ld = {
     </main>
     <Footer lang={lang} page={page} />
     <script>
-      // Parallax: background photos move slower than the page while scrolling.
-      // Turned off for visitors who ask their system for reduced motion.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1) Scroll reveals: text and cards rise in, photos open like a curtain.
+      if (!reduce && 'IntersectionObserver' in window) {
+        const groups: [string, string][] = [
+          ['main h2, .section-head p, .prose p, .band p, .band .link, .band .btns, .values-grid > div, .card h2, .card h3, .card p, .card ul, .card .link, .steps li, .specs, .detail-text > p, .detail-text .btns, .info li, .contact-col > .btns, .contact-col > .link, .form, .others a, .filters, main > .wrap > p', 'reveal'],
+          ['.card img, .mosaic img, .split img, .detail-photos img, .photo-grid img, .map', 'reveal-img'],
+        ];
+        const items: HTMLElement[] = [];
+        for (const [sel, cls] of groups) {
+          document.querySelectorAll<HTMLElement>(sel).forEach((el) => {
+            if (el.closest('.hero, .banner')) return;
+            el.classList.add(cls);
+            items.push(el);
+          });
+        }
+        // Stagger: elements that appear together come in one after another.
+        // Clipped photos can't be "seen" by the observer, so we watch their parent box instead.
+        const targetOf = (el: HTMLElement) => (el.classList.contains('reveal-img') ? el.parentElement! : el);
+        const io = new IntersectionObserver((entries) => {
+          const shown = new Set(entries.filter((e) => e.isIntersecting).map((e) => e.target));
+          const visible = items.filter((el) => !el.classList.contains('in') && shown.has(targetOf(el)));
+          visible.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top || a.getBoundingClientRect().left - b.getBoundingClientRect().left);
+          visible.forEach((el, i) => {
+            el.style.setProperty('--d', `${Math.min(i * 0.09, 0.6)}s`);
+            el.classList.add('in');
+          });
+          shown.forEach((t) => { if (items.every((el) => targetOf(el) !== t || el.classList.contains('in'))) io.unobserve(t); });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+        new Set(items.map(targetOf)).forEach((t) => io.observe(t));
+      }
+
+      // 2) Parallax: background photos move slower than the page;
+      //    the hero text fades and lifts away as you scroll down.
       const sections = [...document.querySelectorAll<HTMLElement>('.parallax')];
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const heroInner = document.querySelector<HTMLElement>('.hero-inner');
       let ticking = false;
       const update = () => {
         ticking = false;
-        if (reduce.matches) return;
+        if (reduce) return;
         const vh = window.innerHeight;
         for (const s of sections) {
           const r = s.getBoundingClientRect();
@@ -97,6 +130,11 @@ const ld = {
           // -1 when the section enters at the bottom, 0 in the middle, 1 when it leaves at the top
           const p = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
           img.style.transform = `translate3d(0, ${(p * r.height * 0.25).toFixed(1)}px, 0)`;
+        }
+        if (heroInner) {
+          const t = Math.min(Math.max(window.scrollY / (vh * 0.6), 0), 1);
+          heroInner.style.opacity = String(1 - t);
+          heroInner.style.translate = `0 ${(-t * 80).toFixed(1)}px`;
         }
       };
       const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
