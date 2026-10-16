@@ -49,6 +49,7 @@ export const t = {
     "followFb": "Следете нѐ на Facebook",
     "mapTitle": "Локација на Пилана Роби Бран на Google мапа",
     "rights": "Сите права задржани.",
+    "latinLine": "Pilana Robi Bran – pilana vo Tetovo, s. Tudence",
     "home": {
       "seeProducts": "Погледнете ги производите",
       "readAbout": "Прочитајте повеќе за нас",
@@ -102,6 +103,7 @@ export const t = {
     "followFb": "Na ndiqni në Facebook",
     "mapTitle": "Vendndodhja e Sharrës Robi Bran në Google Maps",
     "rights": "Të gjitha të drejtat e rezervuara.",
+    "latinLine": "Sharra Robi Bran – sharrë në Tetovë, fsh. Tudencë",
     "home": {
       "seeProducts": "Shikoni produktet",
       "readAbout": "Lexoni më shumë për ne",

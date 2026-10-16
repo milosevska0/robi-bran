@@ -9,7 +9,7 @@ const f = t[lang].contactPage;
 const key = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
 ---
 <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST"
-  data-sending={f.sending} data-sent={f.sent} data-error={fill(f.error)} data-send={f.send}>
+  data-sending={f.sending} data-sent={f.sent} data-error={fill(f.error, lang)} data-send={f.send}>
   <h2>{title}</h2>
   {text && <p>{text}</p>}
   <input type="hidden" name="access_key" value={key} />

@@ -11,6 +11,7 @@ const img = await responsive(src);
     srcset={img.srcset}
     sizes={sizes}
     alt={alt}
+    title={alt || undefined}
     class={cls}
     loading={eager ? 'eager' : 'lazy'}
     fetchpriority={eager ? 'high' : undefined}

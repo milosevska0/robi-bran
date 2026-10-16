@@ -4,14 +4,14 @@ import Banner from '../components/Banner.astro';
 import Pic from '../components/Pic.astro';
 import Values from '../components/Values.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { type Lang } from '../i18n/content';
+import { routes, type Lang } from '../i18n/content';
 import { data, L } from '../lib/site';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const a = data.zaNas;
 const paras = (list: { mk: string; sq: string }[] | undefined) => (list ?? []).map((p) => L(p, lang)).filter(Boolean);
 ---
-<Base lang={lang} page="about" title={L(a.seo?.naslov, lang)} description={L(a.seo?.opis, lang)}>
+<Base lang={lang} page="about" title={L(a.seo?.naslov, lang)} description={L(a.seo?.opis, lang)} ogImage={a.prikazna.slika.slika} crumbs={[{ name: L(a.naslov, lang), path: routes.about[lang] }]}>
   <Banner lang={lang} title={L(a.naslov, lang)} photo={a.slika} />
 
   <section class="wrap section split">

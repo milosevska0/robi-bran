@@ -363,3 +363,16 @@ main::before {
 /* Notice bar at the very top (turned on in the admin panel) */
 .notice { background: var(--green-dark, #14362A); color: #fff; font-size: 15px; line-height: 1.4; text-align: center; }
 .notice .wrap { padding-top: 10px; padding-bottom: 10px; }
+
+/* Frequently asked questions */
+.faq h2 { font-size: 42px; line-height: 1.15; margin-bottom: 40px; }
+.faq-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 0 56px; margin: 0; }
+.faq-list > div { border-top: 1px solid var(--line-strong); padding: 18px 0 22px; }
+.faq-list dt { font-family: var(--head); font-weight: 500; font-size: 21px; color: var(--green); }
+.faq-list dd { margin: 6px 0 0; color: var(--text); }
+@media (max-width: 700px) {
+  .faq h2 { font-size: 28px; margin-bottom: 24px; }
+  .faq-list { grid-template-columns: 1fr; }
+  .faq-list dt { font-size: 19px; }
+}
+.latin-line { opacity: .75; }

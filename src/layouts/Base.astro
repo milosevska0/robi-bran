@@ -2,10 +2,16 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { t, routes, business, type Lang, type PageKey, type Alt } from '../i18n/content';
-import { data, phones, hoursSchema, products, L } from '../lib/site';
+import { data, phones, hoursSchema, products, productPath, findImage, L } from '../lib/site';
+import '@fontsource/oswald/500.css';
+import '@fontsource/oswald/600.css';
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/600.css';
 import '../styles/global.css';
+import { getImage } from 'astro:assets';
 
-interface Props { lang: Lang; page: PageKey; title: string; description: string; alt?: Alt; }
+export type Crumb = { name: string; path: string };
+interface Props { lang: Lang; page: PageKey; title: string; description: string; alt?: Alt; ogImage?: string; crumbs?: Crumb[]; }
 const { lang, page } = Astro.props;
 const title = Astro.props.title || t[lang].brand;
 const description = Astro.props.description;
@@ -14,6 +20,12 @@ const site = Astro.site ?? new URL('https://pilanatetovo.mk');
 const url = (p: string) => new URL(p, site).href;
 const d = t[lang];
 const k = data.kontakt;
+// Picture shown when the page is shared (Facebook, Viber...) — the page's own main photo.
+const ogMeta = findImage(Astro.props.ogImage ?? data.pocetna.glavnaSlika.slika);
+const og = ogMeta ? url((await getImage({ src: ogMeta, width: Math.min(1200, ogMeta.width), format: 'jpg', quality: 80 })).src) : url('/og-image.jpg');
+const homeOgMeta = findImage(data.pocetna.glavnaSlika.slika);
+const homeOg = homeOgMeta ? url((await getImage({ src: homeOgMeta, width: Math.min(1200, homeOgMeta.width), format: 'jpg', quality: 80 })).src) : url('/og-image.jpg');
+const crumbs = Astro.props.crumbs ?? [];
 const notice = data.izvestuvanje.vkluceno ? L(data.izvestuvanje.tekst, lang) : '';
 
 // Information for Google (LocalBusiness), so the pilana shows up properly in search and Maps.
@@ -22,11 +34,13 @@ const ld = {
   '@type': 'LocalBusiness',
   '@id': url('/#business'),
   name: t.mk.brand,
-  alternateName: ['Robi Bran', 'Pilana Robi Bran', 'Pilana Robi-Bran', t.sq.brand],
+  alternateName: ['Pilana Tetovo', 'Pilana Robi Bran Tetovo', 'Pilana Robi Bran', 'Robi Bran', 'Pilana Robi-Bran', t.sq.brand, 'Sharra Tetovë'],
   description: L(data.pocetna.seo?.opis, 'mk'),
   url: url('/'),
   logo: url('/og-logo.png'),
-  image: url('/og-image.jpg'),
+  image: [homeOg, url('/og-image.jpg')],
+  areaServed: [{ '@type': 'City', name: 'Тетово' }, { '@type': 'AdministrativeArea', name: 'Полог' }],
+  knowsLanguage: ['mk', 'sq'],
   ...(phones.length ? { telephone: phones.map((p) => p.tel) } : {}),
   ...(k.email?.trim() ? { email: k.email.trim() } : {}),
   foundingDate: business.founded,
@@ -42,8 +56,22 @@ const ld = {
   hasMap: business.mapsLink,
   ...(hoursSchema.length ? { openingHoursSpecification: hoursSchema } : {}),
   ...(k.facebook?.trim() ? { sameAs: [k.facebook.trim()] } : {}),
-  makesOffer: products.map((p) => ({ '@type': 'Offer', itemOffered: { '@type': 'Product', name: L(p.ime, 'mk') } })),
+  makesOffer: products.map((p) => ({ '@type': 'Offer', itemOffered: { '@type': 'Product', name: L(p.ime, 'mk'), description: L(p.kratokOpis, 'mk'), url: url(productPath(p, 'mk')) } })),
 };
+const website = page === 'home' ? {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: t[lang].brand,
+  alternateName: ['Pilana Tetovo', 'Pilana Robi Bran'],
+  url: url(routes.home[lang]),
+  inLanguage: lang,
+  publisher: { '@id': url('/#business') },
+} : null;
+const breadcrumbs = crumbs.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ name: t[lang].breadcrumbHome, path: routes.home[lang] }, ...crumbs].map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: url(c.path) })),
+} : null;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -65,12 +93,12 @@ const ld = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url(alt[lang])} />
-    <meta property="og:image" content={url('/og-image.jpg')} />
+    <meta property="og:image" content={og} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content={lang === 'mk' ? 'mk_MK' : 'sq_MK'} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
     <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    {website && <script type="application/ld+json" set:html={JSON.stringify(website)} />}
+    {breadcrumbs && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
     <script is:inline>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-motion');</script>
   </head>
   <body>
@@ -87,7 +115,7 @@ const ld = {
       // 1) Scroll reveals: text and cards rise in, photos open like a curtain.
       if (!reduce && 'IntersectionObserver' in window) {
         const groups: [string, string][] = [
-          ['main h2, .section-head p, .prose p, .band p, .band .link, .band .btns, .values-grid > div, .card h2, .card h3, .card p, .card ul, .card .link, .steps li, .specs, .detail-text > p, .detail-text .btns, .info li, .contact-col > .btns, .contact-col > .link, .form, .others a, .filters, main > .wrap > p', 'reveal'],
+          ['main h2, .section-head p, .prose p, .band p, .band .link, .band .btns, .values-grid > div, .faq-list > div, .card h2, .card h3, .card p, .card ul, .card .link, .steps li, .specs, .detail-text > p, .detail-text .btns, .info li, .contact-col > .btns, .contact-col > .link, .form, .others a, .filters, main > .wrap > p', 'reveal'],
           ['.card img, .mosaic img, .split img, .detail-photos img, .photo-grid img, .map', 'reveal-img'],
         ];
         const items: HTMLElement[] = [];

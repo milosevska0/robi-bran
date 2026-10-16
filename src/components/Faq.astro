@@ -1,0 +1,30 @@
+---
+// Frequently asked questions (edited in the admin panel). Also sent to Google as FAQPage data.
+import { type Lang } from '../i18n/content';
+import { data, L } from '../lib/site';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const f = data.cestiPrasanja;
+const items = (f.prasanja ?? []).map((q) => ({ q: L(q.prasanje, lang), a: L(q.odgovor, lang) })).filter((i) => i.q && i.a);
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } })),
+};
+---
+{items.length > 0 && (
+  <section class="border-top" aria-labelledby="faq-title">
+    <div class="wrap section faq">
+      <h2 id="faq-title">{L(f.naslov, lang)}</h2>
+      <dl class="faq-list">
+        {items.map((i) => (
+          <div>
+            <dt>{i.q}</dt>
+            <dd>{i.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </section>
+)}

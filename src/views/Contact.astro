@@ -4,7 +4,7 @@ import Banner from '../components/Banner.astro';
 import ContactInfo from '../components/ContactInfo.astro';
 import MapEmbed from '../components/MapEmbed.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { t, business, type Lang } from '../i18n/content';
+import { t, routes, business, type Lang } from '../i18n/content';
 import { data, L } from '../lib/site';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -12,7 +12,7 @@ const d = t[lang];
 const c = data.kontaktStrana;
 const fb = data.kontakt.facebook?.trim();
 ---
-<Base lang={lang} page="contact" title={L(c.seo?.naslov, lang)} description={L(c.seo?.opis, lang)}>
+<Base lang={lang} page="contact" title={L(c.seo?.naslov, lang)} description={L(c.seo?.opis, lang)} ogImage={c.slika} crumbs={[{ name: L(c.naslov, lang), path: routes.contact[lang] }]}>
   <Banner lang={lang} title={L(c.naslov, lang)} photo={c.slika} />
   <section class="wrap section contact-page">
     <div class="contact-col">

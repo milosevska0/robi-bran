@@ -240,6 +240,20 @@ collections:
               - { name: tekst, label: 'Текст', <<: *line }
               - { name: slika, label: 'Слика во позадина', widget: image, choose_url: false }
           - *seo
+      - name: cesti-prasanja
+        label: 'Често поставувани прашања'
+        file: src/data/cesti-prasanja.json
+        fields:
+          - { name: naslov, label: 'Наслов', <<: *line }
+          - name: prasanja
+            label: 'Прашања'
+            label_singular: 'прашање'
+            hint: 'Во одговорот може да напишете {телефон}, {адреса} или {работно време}, и сајтот сам ги пополнува од контакт податоците.'
+            widget: list
+            summary: '{{fields.prasanje.mk}}'
+            fields:
+              - { name: prasanje, label: 'Прашање', <<: *line }
+              - { name: odgovor, label: 'Одговор', <<: *text }
       - name: za-nas
         label: 'За нас'
         file: src/data/za-nas.json

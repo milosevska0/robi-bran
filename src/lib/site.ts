@@ -10,12 +10,13 @@ import proizvodi from '../data/proizvodi.json';
 import zaNas from '../data/za-nas.json';
 import galerija from '../data/galerija.json';
 import kontaktStrana from '../data/kontakt-strana.json';
+import cestiPrasanja from '../data/cesti-prasanja.json';
 import type { Lang } from '../i18n/content';
 
 export type Pair = { mk: string; sq: string };
 export type Photo = { slika: string; opis: Pair };
 
-export const data = { kontakt, izvestuvanje, pocetna, vrednosti, proizvodi, zaNas, galerija, kontaktStrana };
+export const data = { kontakt, izvestuvanje, pocetna, vrednosti, proizvodi, zaNas, galerija, kontaktStrana, cestiPrasanja };
 
 // ---- Phones ---------------------------------------------------------------
 // "070 395 033" -> "+38970395033"
@@ -28,23 +29,29 @@ const toTel = (n: string) => {
 export const phones = (kontakt.telefoni ?? []).filter((p) => p.broj?.trim()).map((p) => ({ number: p.broj.trim(), tel: toTel(p.broj) }));
 export const mainPhone = phones[0];
 
-// Texts may contain {телефон}: it becomes the first phone number.
-// If there is no phone at all, the sentence with {телефон} is left out.
-const TOKEN = /\{(телефон|telefon)\}/gi;
-export function fill(text: string): string {
+// Texts may contain placeholders that are filled from the contact data:
+//   {телефон} -> first phone number, {адреса} -> address, {работно време} -> opening hours.
+// If the value is missing (e.g. no phone at all), the sentence with it is left out.
+const TOKEN = /\{(телефон|telefon|адреса|adresa|работно време|rabotno vreme)\}/gi;
+export function fill(text: string, lang: Lang = 'mk'): string {
   if (!text) return '';
-  if (!TOKEN.test(text)) return text;
-  TOKEN.lastIndex = 0;
-  if (mainPhone) return text.replace(TOKEN, mainPhone.number);
+  if (!/\{(телефон|telefon|адреса|adresa|работно време|rabotno vreme)\}/i.test(text)) return text;
+  const value = (key: string) => {
+    const k = key.toLowerCase();
+    if (k === 'телефон' || k === 'telefon') return mainPhone?.number ?? '';
+    if (k === 'адреса' || k === 'adresa') return (kontakt.adresa?.[lang] || kontakt.adresa?.mk || '').trim();
+    return hours(lang).map((h, i) => (i ? h.charAt(0).toLowerCase() + h.slice(1) : h)).join('; ');
+  };
   return text
     .split(/(?<=[.!?])\s+/)
-    .filter((s) => !/\{(телефон|telefon)\}/i.test(s))
+    .filter((sentence) => [...sentence.matchAll(TOKEN)].every((m) => value(m[1])))
+    .map((sentence) => sentence.replace(TOKEN, (_, k) => value(k)))
     .join(' ')
     .trim();
 }
 
 // Pick the language from a { mk, sq } pair (falls back to Macedonian).
-export const L = (p: Pair | undefined, lang: Lang) => fill((p?.[lang] || p?.mk || '').trim());
+export const L = (p: Pair | undefined, lang: Lang) => fill((p?.[lang] || p?.mk || '').trim(), lang);
 
 // ---- Opening hours --------------------------------------------------------
 const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as const;

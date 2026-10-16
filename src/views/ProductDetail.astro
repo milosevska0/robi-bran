@@ -13,7 +13,7 @@ const [main, ...thumbs] = (product.sliki ?? []).filter((s) => s.slika);
 const specs = (product.detali ?? []).map((r) => [L(r.naslov, lang), L(r.vrednost, lang)]).filter(([k, v]) => k || v);
 const others = products.filter((p) => p !== product);
 ---
-<Base lang={lang} page="product" title={L(product.seo?.naslov, lang) || name} description={L(product.seo?.opis, lang) || L(product.kratokOpis, lang)} alt={productAlt(product)}>
+<Base lang={lang} page="product" title={L(product.seo?.naslov, lang) || name} description={L(product.seo?.opis, lang) || L(product.kratokOpis, lang)} alt={productAlt(product)} ogImage={main?.slika} crumbs={[{ name: d.nav.products, path: routes.products[lang] }, { name, path: productPath(product, lang) }]}>
   <div class="wrap">
     <div class="crumbs-dark"><a href={routes.home[lang]}>{d.breadcrumbHome}</a> / <a href={routes.products[lang]}>{d.nav.products}</a> / {name}</div>
     <section class="detail">

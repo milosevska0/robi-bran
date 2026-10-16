@@ -13,141 +13,141 @@
     "mk": "Галерија",
     "sq": "Galeria"
   },
-  "slika": "/src/assets/uploads/yard-forklift.webp",
+  "slika": "/src/assets/uploads/dvor-pilana-tudence-tetovo.webp",
   "sliki": [
     {
-      "slika": "/src/assets/uploads/hero-yard.webp",
+      "slika": "/src/assets/uploads/pilana-tetovo-bukova-grada-dvor.webp",
       "opis": {
-        "mk": "Букова граѓа во дворот, со Шар Планина",
-        "sq": "Lëndë ahu në oborr, me malin Sharr"
+        "mk": "Наредена букова граѓа во дворот на Пилана Роби Бран, Тетово, со Шар Планина",
+        "sq": "Lëndë ahu e radhitur në oborrin e Sharrës Robi Bran, Tetovë, me malin Sharr"
       },
       "kategorija": "pilana"
     },
     {
-      "slika": "/src/assets/uploads/lumber-stacks.webp",
+      "slika": "/src/assets/uploads/bukovi-shtici-po-merka-tetovo.webp",
       "opis": {
-        "mk": "Наредени букови штици",
-        "sq": "Dërrasa ahu të radhitura"
+        "mk": "Наредени букови штици исечени по мерка, Пилана Роби Бран Тетово",
+        "sq": "Dërrasa ahu të prera sipas masës, Sharra Robi Bran Tetovë"
       },
       "kategorija": "grada"
     },
     {
-      "slika": "/src/assets/uploads/pellets-bags.webp",
+      "slika": "/src/assets/uploads/a1-pelet-vreki-15kg-robi-bran.webp",
       "opis": {
-        "mk": "Вреќи А1 пелет",
-        "sq": "Thasë me pelet A1"
+        "mk": "Вреќи сертифициран А1 пелет од 15 kg, Роби Бран Тетово",
+        "sq": "Thasë peleti A1 të certifikuar 15 kg, Robi Bran Tetovë"
       },
       "kategorija": "pelet"
     },
     {
-      "slika": "/src/assets/uploads/saw-log.webp",
+      "slika": "/src/assets/uploads/bukov-trupec-pila-pilana-tetovo.webp",
       "opis": {
-        "mk": "Буков трупец на пилата",
-        "sq": "Trung ahu në sharrë"
+        "mk": "Буков трупец на пилата во пиланата во с. Туденце, Тетово",
+        "sq": "Trung ahu në sharrë, fsh. Tudencë, Tetovë"
       },
       "kategorija": "pilana"
     },
     {
-      "slika": "/src/assets/uploads/lumber-beams.webp",
+      "slika": "/src/assets/uploads/bukovi-gredi-dvor-pilana-tetovo.webp",
       "opis": {
-        "mk": "Букови греди наредени во дворот",
-        "sq": "Trarë ahu të radhitur në oborr"
+        "mk": "Букови греди наредени во дворот на пиланата во Тетово",
+        "sq": "Trarë ahu të radhitur në oborrin e sharrës në Tetovë"
       },
       "kategorija": "grada"
     },
     {
-      "slika": "/src/assets/uploads/pellets-pallets.webp",
+      "slika": "/src/assets/uploads/paleti-a1-pelet-tetovo.webp",
       "opis": {
-        "mk": "Наредени палети пелет",
-        "sq": "Paleta pelet të radhitura"
+        "mk": "Палети со А1 пелет Роби Бран подготвени за подигање, Тетово",
+        "sq": "Paleta me pelet A1 Robi Bran gati për marrje, Tetovë"
       },
       "kategorija": "pelet"
     },
     {
-      "slika": "/src/assets/uploads/yard-forklift.webp",
+      "slika": "/src/assets/uploads/dvor-pilana-tudence-tetovo.webp",
       "opis": {
-        "mk": "Дворот на пиланата со виљушкар",
-        "sq": "Oborri i sharrës me pirun ngritës"
+        "mk": "Дворот на Пилана Роби Бран во с. Туденце, Тетово, со виљушкар и граѓа",
+        "sq": "Oborri i Sharrës Robi Bran në fsh. Tudencë, Tetovë, me pirun ngritës dhe lëndë"
       },
       "kategorija": "pilana"
     },
     {
-      "slika": "/src/assets/uploads/lumber-boards.webp",
+      "slika": "/src/assets/uploads/bukovi-shtici-tetovo.webp",
       "opis": {
-        "mk": "Букови штици",
-        "sq": "Dërrasa ahu"
+        "mk": "Букови штици од Пилана Роби Бран, Тетово",
+        "sq": "Dërrasa ahu nga Sharra Robi Bran, Tetovë"
       },
       "kategorija": "grada"
     },
     {
-      "slika": "/src/assets/uploads/pellets-stack.webp",
+      "slika": "/src/assets/uploads/a1-pelet-paleti-pilana-tetovo.webp",
       "opis": {
-        "mk": "Палети со пелет",
-        "sq": "Paleta me pelet"
+        "mk": "Наредени палети А1 пелет во пиланата во Тетово",
+        "sq": "Paleta peleti A1 të radhitura në sharrën në Tetovë"
       },
       "kategorija": "pelet"
     },
     {
-      "slika": "/src/assets/uploads/lumber-stacks2.webp",
+      "slika": "/src/assets/uploads/naredena-bukova-grada-tetovo.webp",
       "opis": {
-        "mk": "Наредена букова граѓа",
-        "sq": "Lëndë ahu e radhitur"
+        "mk": "Наредена букова граѓа во пиланата во Тетово",
+        "sq": "Lëndë ahu e radhitur në sharrën në Tetovë"
       },
       "kategorija": "grada"
     },
     {
-      "slika": "/src/assets/uploads/yard-mountain.webp",
+      "slika": "/src/assets/uploads/bukova-grada-shar-planina-tetovo.webp",
       "opis": {
-        "mk": "Граѓа пред Шар Планина",
-        "sq": "Lëndë para malit Sharr"
+        "mk": "Букова граѓа пред Шар Планина, Пилана Роби Бран Тетово",
+        "sq": "Lëndë ahu para malit Sharr, Sharra Robi Bran Tetovë"
       },
       "kategorija": "pilana"
     },
     {
-      "slika": "/src/assets/uploads/yard-stacks.webp",
+      "slika": "/src/assets/uploads/grada-za-podiganje-pilana-tetovo.webp",
       "opis": {
-        "mk": "Граѓа подготвена за подигање",
-        "sq": "Lëndë gati për t’u marrë"
+        "mk": "Букова граѓа подготвена за подигање од пиланата во Тетово",
+        "sq": "Lëndë ahu gati për t’u marrë nga sharra në Tetovë"
       },
       "kategorija": "grada"
     },
     {
-      "slika": "/src/assets/uploads/logs-truck.webp",
+      "slika": "/src/assets/uploads/kamion-trupci-pilana-tetovo.webp",
       "opis": {
-        "mk": "Камион со трупци пред пиланата",
-        "sq": "Kamion me trungje para sharrës"
+        "mk": "Камион со букови трупци пред Пилана Роби Бран, Тетово",
+        "sq": "Kamion me trungje ahu para Sharrës Robi Bran, Tetovë"
       },
       "kategorija": "pilana"
     },
     {
-      "slika": "/src/assets/uploads/pellets-warehouse.webp",
+      "slika": "/src/assets/uploads/a1-pelet-magacin-tetovo.webp",
       "opis": {
-        "mk": "Пелет во магацинот",
-        "sq": "Pelet në magazinë"
+        "mk": "А1 пелет во магацинот на пиланата во Тетово",
+        "sq": "Pelet A1 në magazinën e sharrës në Tetovë"
       },
       "kategorija": "pelet"
     },
     {
-      "slika": "/src/assets/uploads/saw-log-2.webp",
+      "slika": "/src/assets/uploads/sechenje-bukov-trupec-pilana-tetovo.webp",
       "opis": {
-        "mk": "Сечење на трупец во пиланата",
-        "sq": "Prerja e trungut në sharrë"
+        "mk": "Сечење буков трупец во Пилана Роби Бран, Тетово",
+        "sq": "Prerja e trungut të ahut në Sharrën Robi Bran, Tetovë"
       },
       "kategorija": "pilana"
     },
     {
-      "slika": "/src/assets/uploads/lumber-planks.webp",
+      "slika": "/src/assets/uploads/bukovi-talpi-tetovo.webp",
       "opis": {
-        "mk": "Букови талпи",
-        "sq": "Tabla ahu"
+        "mk": "Букови талпи исечени во пиланата во Тетово",
+        "sq": "Tabla ahu të prera në sharrën në Tetovë"
       },
       "kategorija": "grada"
     },
     {
-      "slika": "/src/assets/uploads/pellets-closeup.webp",
+      "slika": "/src/assets/uploads/pelet-vreki-15kg-tetovo.webp",
       "opis": {
-        "mk": "Вреќи пелет од 15 kg",
-        "sq": "Thasë pelet 15 kg"
+        "mk": "Вреќи А1 пелет од 15 kg одблизу, Роби Бран Тетово",
+        "sq": "Thasë peleti A1 15 kg nga afër, Robi Bran Tetovë"
       },
       "kategorija": "pelet"
     }

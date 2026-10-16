@@ -13,7 +13,7 @@
     "mk": "За нас",
     "sq": "Rreth nesh"
   },
-  "slika": "/src/assets/uploads/saw-log.webp",
+  "slika": "/src/assets/uploads/bukov-trupec-pila-pilana-tetovo.webp",
   "prikazna": {
     "naslov": {
       "mk": "Семејна пилана од 2005 година.",
@@ -38,10 +38,10 @@
       }
     ],
     "slika": {
-      "slika": "/src/assets/uploads/yard-forklift.webp",
+      "slika": "/src/assets/uploads/dvor-pilana-tudence-tetovo.webp",
       "opis": {
-        "mk": "Дворот на пиланата со виљушкар и наредена граѓа",
-        "sq": "Oborri i sharrës me pirun ngritës dhe lëndë të radhitur"
+        "mk": "Дворот на Пилана Роби Бран во с. Туденце, Тетово, со виљушкар и граѓа",
+        "sq": "Oborri i Sharrës Robi Bran në fsh. Tudencë, Tetovë, me pirun ngritës dhe lëndë"
       }
     }
   },
@@ -61,10 +61,10 @@
       }
     ],
     "slika": {
-      "slika": "/src/assets/uploads/saw-log.webp",
+      "slika": "/src/assets/uploads/bukov-trupec-pila-pilana-tetovo.webp",
       "opis": {
-        "mk": "Буков трупец на пилата",
-        "sq": "Trung ahu në sharrë"
+        "mk": "Буков трупец на пилата во пиланата во с. Туденце, Тетово",
+        "sq": "Trung ahu në sharrë, fsh. Tudencë, Tetovë"
       }
     }
   },
@@ -77,6 +77,6 @@
       "mk": "Јавете се или дојдете во пиланата во работното време.",
       "sq": "Na telefononi ose ejani në sharrë gjatë orarit të punës."
     },
-    "slika": "/src/assets/uploads/yard-mountain.webp"
+    "slika": "/src/assets/uploads/bukova-grada-shar-planina-tetovo.webp"
   }
 }

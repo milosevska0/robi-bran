@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Banner from '../components/Banner.astro';
 import Pic from '../components/Pic.astro';
-import { t, type Lang } from '../i18n/content';
+import { t, routes, type Lang } from '../i18n/content';
 import { data, responsive, L } from '../lib/site';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -13,7 +13,7 @@ const items = await Promise.all(
 );
 const filters = (['all', 'grada', 'pelet', 'pilana'] as const).filter((f) => f === 'all' || items.some((i) => i.kategorija === f));
 ---
-<Base lang={lang} page="gallery" title={L(g.seo?.naslov, lang)} description={L(g.seo?.opis, lang)}>
+<Base lang={lang} page="gallery" title={L(g.seo?.naslov, lang)} description={L(g.seo?.opis, lang)} ogImage={g.slika} crumbs={[{ name: L(g.naslov, lang), path: routes.gallery[lang] }]}>
   <Banner lang={lang} title={L(g.naslov, lang)} photo={g.slika} />
   <section class="wrap section">
     {filters.length > 2 && (

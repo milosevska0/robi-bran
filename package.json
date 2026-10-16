@@ -9,8 +9,10 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "5.18.2",
-    "@astrojs/sitemap": "3.7.4"
+    "@astrojs/sitemap": "3.7.4",
+    "@fontsource/oswald": "^5.2.8",
+    "@fontsource/source-sans-3": "^5.2.8",
+    "astro": "5.18.2"
   },
   "devDependencies": {
     "decap-server": "3.3.1"

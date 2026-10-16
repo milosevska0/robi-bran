@@ -5,6 +5,7 @@ import Icon from '../components/Icon.astro';
 import Values from '../components/Values.astro';
 import ContactInfo from '../components/ContactInfo.astro';
 import MapEmbed from '../components/MapEmbed.astro';
+import Faq from '../components/Faq.astro';
 import { t, routes, business, type Lang } from '../i18n/content';
 import { data, mainPhone, products, productPath, L } from '../lib/site';
 interface Props { lang: Lang; }
@@ -73,6 +74,8 @@ const mosaicClass = ['big', 'hide-sm', '', '', 'hide-sm'];
       </div>
     </div>
   </section>
+
+  <Faq lang={lang} />
 
   <section class="band parallax">
     <Pic src={h.kontakt.slika} class="cover" sizes="100vw" />

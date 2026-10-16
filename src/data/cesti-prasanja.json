@@ -1,0 +1,58 @@
+{
+  "naslov": {
+    "mk": "Често поставувани прашања",
+    "sq": "Pyetje të shpeshta"
+  },
+  "prasanja": [
+    {
+      "prasanje": {
+        "mk": "Дали имате достава?",
+        "sq": "A keni transport deri në shtëpi?"
+      },
+      "odgovor": {
+        "mk": "Не. Граѓата и пелетот се подигаат од пиланата, на адреса {адреса}.",
+        "sq": "Jo. Lënda dhe peleti merren në sharrë, në adresën {адреса}."
+      }
+    },
+    {
+      "prasanje": {
+        "mk": "Дали сечете по мерка?",
+        "sq": "A prisni sipas masës?"
+      },
+      "odgovor": {
+        "mk": "Да. Буковата граѓа ја сечеме по должината, ширината и дебелината што ви требаат.",
+        "sq": "Po. Lëndën e ahut e presim sipas gjatësisë, gjerësisë dhe trashësisë që ju nevojitet."
+      }
+    },
+    {
+      "prasanje": {
+        "mk": "Колку чини граѓата или пелетот?",
+        "sq": "Sa kushton lënda ose peleti?"
+      },
+      "odgovor": {
+        "mk": "Цената зависи од мерката и количината. Јавете се на {телефон} за точна цена.",
+        "sq": "Çmimi varet nga masa dhe sasia. Na telefononi në {телефон} për çmim të saktë."
+      }
+    },
+    {
+      "prasanje": {
+        "mk": "Каков пелет продавате?",
+        "sq": "Çfarë peleti shitni?"
+      },
+      "odgovor": {
+        "mk": "Сертифициран А1 пелет од 100% дрво, во вреќи од 15 kg.",
+        "sq": "Pelet i certifikuar A1 prej 100% druri, në thasë 15 kg."
+      }
+    },
+    {
+      "prasanje": {
+        "mk": "Каде се наоѓате и кога работите?",
+        "sq": "Ku ndodheni dhe kur punoni?"
+      },
+      "odgovor": {
+        "mk": "Адреса: {адреса}. Работно време: {работно време}.",
+        "sq": "Adresa: {адреса}. Orari: {работно време}."
+      }
+    }
+  ]
+}

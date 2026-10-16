@@ -13,7 +13,7 @@
     "mk": "Производи",
     "sq": "Produkte"
   },
-  "slika": "/src/assets/uploads/lumber-stacks.webp",
+  "slika": "/src/assets/uploads/bukovi-shtici-po-merka-tetovo.webp",
   "voved": {
     "mk": "Граѓата ја сечеме по ваша мерка, а пелетот го продаваме во вреќи. Сите производи се подигаат директно од пиланата.",
     "sq": "Lëndën e presim sipas masës suaj, kurse peletin e shesim në thasë. Të gjitha produktet merren drejtpërdrejt në sharrë."
@@ -98,31 +98,31 @@
       ],
       "sliki": [
         {
-          "slika": "/src/assets/uploads/lumber-stacks.webp",
+          "slika": "/src/assets/uploads/bukovi-shtici-po-merka-tetovo.webp",
           "opis": {
-            "mk": "Наредени букови штици",
-            "sq": "Dërrasa ahu të radhitura"
+            "mk": "Букова граѓа по мерка: наредени букови штици, Пилана Роби Бран Тетово",
+            "sq": "Lëndë ahu sipas masës: dërrasa ahu të radhitura, Sharra Robi Bran Tetovë"
           }
         },
         {
-          "slika": "/src/assets/uploads/lumber-stacks2.webp",
+          "slika": "/src/assets/uploads/naredena-bukova-grada-tetovo.webp",
           "opis": {
-            "mk": "Наредена букова граѓа",
-            "sq": "Lëndë ahu e radhitur"
+            "mk": "Наредена букова граѓа во пиланата во Тетово",
+            "sq": "Lëndë ahu e radhitur në sharrën në Tetovë"
           }
         },
         {
-          "slika": "/src/assets/uploads/lumber-beams.webp",
+          "slika": "/src/assets/uploads/bukovi-gredi-dvor-pilana-tetovo.webp",
           "opis": {
-            "mk": "Букови греди наредени во дворот",
-            "sq": "Trarë ahu të radhitur në oborr"
+            "mk": "Букови греди наредени во дворот на пиланата во Тетово",
+            "sq": "Trarë ahu të radhitur në oborrin e sharrës në Tetovë"
           }
         },
         {
-          "slika": "/src/assets/uploads/yard-stacks.webp",
+          "slika": "/src/assets/uploads/grada-za-podiganje-pilana-tetovo.webp",
           "opis": {
-            "mk": "Граѓа подготвена за подигање",
-            "sq": "Lëndë gati për t’u marrë"
+            "mk": "Букова граѓа подготвена за подигање од пиланата во Тетово",
+            "sq": "Lëndë ahu gati për t’u marrë nga sharra në Tetovë"
           }
         }
       ],
@@ -216,31 +216,31 @@
       ],
       "sliki": [
         {
-          "slika": "/src/assets/uploads/pellets-bags.webp",
+          "slika": "/src/assets/uploads/a1-pelet-vreki-15kg-robi-bran.webp",
           "opis": {
-            "mk": "Вреќи А1 пелет Роби Бран",
-            "sq": "Thasë me pelet A1 Robi Bran"
+            "mk": "Вреќи сертифициран А1 пелет од 15 kg, Роби Бран Тетово",
+            "sq": "Thasë peleti A1 të certifikuar 15 kg, Robi Bran Tetovë"
           }
         },
         {
-          "slika": "/src/assets/uploads/pellets-pallets.webp",
+          "slika": "/src/assets/uploads/paleti-a1-pelet-tetovo.webp",
           "opis": {
-            "mk": "Наредени палети пелет",
-            "sq": "Paleta pelet të radhitura"
+            "mk": "Палети со А1 пелет Роби Бран подготвени за подигање, Тетово",
+            "sq": "Paleta me pelet A1 Robi Bran gati për marrje, Tetovë"
           }
         },
         {
-          "slika": "/src/assets/uploads/pellets-closeup.webp",
+          "slika": "/src/assets/uploads/pelet-vreki-15kg-tetovo.webp",
           "opis": {
-            "mk": "Вреќи пелет од 15 kg",
-            "sq": "Thasë pelet 15 kg"
+            "mk": "Вреќи А1 пелет од 15 kg одблизу, Роби Бран Тетово",
+            "sq": "Thasë peleti A1 15 kg nga afër, Robi Bran Tetovë"
           }
         },
         {
-          "slika": "/src/assets/uploads/pellets-warehouse.webp",
+          "slika": "/src/assets/uploads/a1-pelet-magacin-tetovo.webp",
           "opis": {
-            "mk": "Пелет во магацинот",
-            "sq": "Pelet në magazinë"
+            "mk": "А1 пелет во магацинот на пиланата во Тетово",
+            "sq": "Pelet A1 në magazinën e sharrës në Tetovë"
           }
         }
       ],
@@ -301,6 +301,6 @@
       "mk": "Цената зависи од видот на дрвото, мерката и количината.",
       "sq": "Çmimi varet nga lloji i drurit, masa dhe sasia."
     },
-    "slika": "/src/assets/uploads/sawing-board.webp"
+    "slika": "/src/assets/uploads/sechenje-bukova-shtica.webp"
   }
 }
