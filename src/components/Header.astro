@@ -1,0 +1,62 @@
+---
+import Icon from './Icon.astro';
+import { t, routes, business, type Lang, type PageKey } from '../i18n/content';
+interface Props { lang: Lang; page: PageKey; }
+const { lang, page } = Astro.props;
+const d = t[lang];
+const navKeys = ['home', 'about', 'products', 'gallery', 'contact'] as const;
+const isCurrent = (k: string) => k === page || (k === 'products' && (page === 'beech' || page === 'pellet'));
+const other: Lang = lang === 'mk' ? 'sq' : 'mk';
+---
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href={routes.home[lang]} class="logo" aria-label={`${d.brand}, ${d.nav.home}`}>
+      <img src="/robibran-logo.svg" alt="" width="295" height="76" />
+    </a>
+    <nav class="nav" aria-label={d.mainMenu}>
+      {navKeys.map((k) => (
+        <a href={routes[k][lang]} aria-current={isCurrent(k) ? 'page' : undefined}>{d.nav[k]}</a>
+      ))}
+    </nav>
+    <div class="header-side">
+      <div class="lang">
+        <a href={routes[page].mk} lang="mk" aria-current={lang === 'mk' ? 'true' : undefined}>МК</a><span aria-hidden="true">/</span><a href={routes[page].sq} lang="sq" aria-current={lang === 'sq' ? 'true' : undefined}>SQ</a>
+      </div>
+      <a class="btn btn-green btn-phone" href={`tel:${business.phone1Tel}`}><Icon name="phone" size={18} />{business.phone1}</a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel" aria-label={d.menuOpen} data-open-label={d.menuOpen} data-close-label={d.menuClose}>
+      <span class="i-open"><Icon name="menu" size={26} /></span>
+      <span class="i-close" hidden><Icon name="close" size={26} /></span>
+    </button>
+  </div>
+  <div class="mobile-panel" id="mobile-panel" data-open="false">
+    <div class="wrap">
+      <nav aria-label={d.mainMenu}>
+        {navKeys.map((k) => (
+          <a href={routes[k][lang]} aria-current={isCurrent(k) ? 'page' : undefined}>{d.nav[k]}</a>
+        ))}
+      </nav>
+      <div class="panel-foot">
+        <div class="lang">
+          <a href={routes[page].mk} lang="mk" aria-current={lang === 'mk' ? 'true' : undefined}>Македонски</a><span aria-hidden="true">/</span><a href={routes[page].sq} lang="sq" aria-current={lang === 'sq' ? 'true' : undefined}>Shqip</a>
+        </div>
+        <a class="btn btn-green btn-phone" href={`tel:${business.phone1Tel}`}><Icon name="phone" size={18} />{business.phone1}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const panel = document.getElementById('mobile-panel');
+  if (btn && panel) {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', (open ? btn.dataset.closeLabel : btn.dataset.openLabel) || '');
+      panel.dataset.open = String(open);
+      btn.querySelector<HTMLElement>('.i-open')!.hidden = open;
+      btn.querySelector<HTMLElement>('.i-close')!.hidden = !open;
+    });
+  }
+</script>

@@ -1,0 +1,13 @@
+---
+import { t, business, type Lang } from '../i18n/content';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+---
+<iframe
+  class="map"
+  src={business.mapsEmbed}
+  title={t[lang].mapTitle}
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  allowfullscreen
+></iframe>

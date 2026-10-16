@@ -1,0 +1,83 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { t, routes, business, type Lang, type PageKey } from '../i18n/content';
+import '../styles/global.css';
+
+interface Props { lang: Lang; page: PageKey; title: string; description: string; }
+const { lang, page, title, description } = Astro.props;
+const site = Astro.site ?? new URL('https://www.pilanatetovo.com');
+const url = (p: string) => new URL(p, site).href;
+const d = t[lang];
+
+// Information for Google (LocalBusiness), so the pilana shows up properly in search and Maps.
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': url('/#business'),
+  name: t.mk.brand,
+  alternateName: ['Robi Bran', 'Pilana Robi Bran', 'Pilana Robi-Bran', t.sq.brand],
+  description: t.mk.home.description,
+  url: url('/'),
+  logo: url('/og-logo.png'),
+  image: url('/og-image.jpg'),
+  telephone: [business.phone1Tel, business.phone2Tel],
+  ...(business.email ? { email: business.email } : {}),
+  foundingDate: business.founded,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'ул. 101',
+    addressLocality: 'Туденце, Тетово',
+    addressRegion: 'Тетово',
+    postalCode: '1200',
+    addressCountry: 'MK',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: business.lat, longitude: business.lng },
+  hasMap: business.mapsLink,
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '16:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '12:00' },
+  ],
+  sameAs: [business.facebook],
+  makesOffer: [
+    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: t.mk.products.beech.name } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: t.mk.products.pellet.name } },
+  ],
+};
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url(routes[page][lang])} />
+    <link rel="alternate" hreflang="mk" href={url(routes[page].mk)} />
+    <link rel="alternate" hreflang="sq" href={url(routes[page].sq)} />
+    <link rel="alternate" hreflang="x-default" href={url(routes[page].mk)} />
+    <meta name="theme-color" content="#1E4D33" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={d.brand} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url(routes[page][lang])} />
+    <meta property="og:image" content={url('/og-image.jpg')} />
+    <meta property="og:locale" content={lang === 'mk' ? 'mk_MK' : 'sq_MK'} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{lang === 'mk' ? 'Прескокни до содржината' : 'Kalo te përmbajtja'}</a>
+    <Header lang={lang} page={page} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} page={page} />
+  </body>
+</html>

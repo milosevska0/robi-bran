@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import Banner from '../components/Banner.astro';
+import Pic from '../components/Pic.astro';
+import Values from '../components/Values.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { t, type Lang } from '../i18n/content';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const a = t[lang].about;
+---
+<Base lang={lang} page="about" title={a.title} description={a.description}>
+  <Banner lang={lang} title={a.heading} photo="sawLog" />
+
+  <section class="wrap section split">
+    <div class="prose">
+      <h2>{a.storyTitle}</h2>
+      {a.story.map((p) => <p>{p}</p>)}
+    </div>
+    <Pic photo="yardForklift" lang={lang} alt={a.yardAlt} />
+  </section>
+
+  <Values lang={lang} />
+
+  <section class="wrap section split reverse-sm">
+    <Pic photo="sawLog" lang={lang} alt={a.sawAlt} />
+    <div class="prose">
+      <h2 class="ink">{a.howTitle}</h2>
+      {a.how.map((p) => <p>{p}</p>)}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={a.ctaTitle} text={a.ctaText} />
+</Base>

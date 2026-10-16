@@ -1,0 +1,65 @@
+---
+// Question form. Messages are delivered by Web3Forms (free) to the pilana's e-mail.
+// Set PUBLIC_WEB3FORMS_KEY in a .env file (see README). Visitor's e-mail becomes reply-to.
+import { t, type Lang } from '../i18n/content';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const f = t[lang].contactPage;
+const key = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+---
+<form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST"
+  data-sending={f.sending} data-sent={f.sent} data-error={f.error} data-send={f.send}>
+  <h2>{f.formTitle}</h2>
+  <p>{f.formText}</p>
+  <input type="hidden" name="access_key" value={key} />
+  <input type="hidden" name="subject" value={f.subject} />
+  <input type="hidden" name="from_name" value="pilanatetovo.com" />
+  <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <div class="field">
+    <label for="cf-name">{f.name}</label>
+    <input id="cf-name" name="name" type="text" autocomplete="name" required />
+  </div>
+  <div class="field">
+    <label for="cf-reply">{f.reply}</label>
+    <input id="cf-reply" name="contact" type="text" autocomplete="email" required />
+  </div>
+  <div class="field">
+    <label for="cf-msg">{f.message}</label>
+    <textarea id="cf-msg" name="message" rows="6" placeholder={f.messagePlaceholder} required></textarea>
+  </div>
+  <button class="btn btn-green" type="submit">{f.send}</button>
+  <p class="form-status" role="status" aria-live="polite"></p>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.querySelector<HTMLElement>('.form-status')!;
+      const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+      const data = new FormData(form);
+      // If the visitor wrote an e-mail, use it as reply-to so the owner can just press Reply.
+      const contact = String(data.get('contact') || '');
+      if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(contact)) data.set('email', contact);
+      btn.disabled = true;
+      btn.textContent = form.dataset.sending || '';
+      status.className = 'form-status';
+      status.textContent = '';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false) throw new Error('send failed');
+        form.reset();
+        status.className = 'form-status ok';
+        status.textContent = form.dataset.sent || '';
+      } catch {
+        status.className = 'form-status err';
+        status.textContent = form.dataset.error || '';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = form.dataset.send || '';
+      }
+    });
+  }
+</script>

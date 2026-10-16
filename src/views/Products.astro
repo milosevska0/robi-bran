@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Banner from '../components/Banner.astro';
+import Pic from '../components/Pic.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { t, routes, type Lang } from '../i18n/content';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const d = t[lang];
+const p = d.productsPage;
+const items = [
+  { key: 'beech' as const, photo: 'lumberStacks' as const, href: routes.beech[lang] },
+  { key: 'pellet' as const, photo: 'pelletsBags' as const, href: routes.pellet[lang] },
+];
+---
+<Base lang={lang} page="products" title={p.title} description={p.description}>
+  <Banner lang={lang} title={p.heading} photo="lumberStacks" />
+
+  <section class="wrap section">
+    <p class="text center" style="max-width: 760px; margin: 0 auto 56px; font-size: 1.1em;">{p.intro}</p>
+    <div class="cards">
+      {items.map((i) => (
+        <article class="card">
+          <Pic photo={i.photo} lang={lang} alt={d.products[i.key].alt} />
+          <h2>{d.products[i.key].name}</h2>
+          <p>{d.products[i.key].lead}</p>
+          <ul class="grow">{d.products[i.key].bullets.map((b) => <li>{b}</li>)}</ul>
+          <a class="link" href={i.href}>{d.products[i.key].moreLink}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="stone">
+    <div class="wrap section">
+      <h2 class="center" style="font-size: 32px; margin-bottom: 32px;">{p.howTitle}</h2>
+      <ol class="steps">
+        {p.steps.map((s, i) => (
+          <li><strong>{i + 1}. {s.title}</strong><p>{s.text}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={p.ctaTitle} text={p.ctaText} />
+</Base>

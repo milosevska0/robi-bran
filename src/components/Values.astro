@@ -1,0 +1,18 @@
+---
+import { t, type Lang } from '../i18n/content';
+interface Props { lang: Lang; }
+const v = t[Astro.props.lang].values;
+---
+<section class="values" aria-labelledby="values-title">
+  <div class="wrap">
+    <h2 id="values-title">{v.title}</h2>
+    <div class="values-grid">
+      {v.items.map((i) => (
+        <div>
+          <h3>{i.title}</h3>
+          <p>{i.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

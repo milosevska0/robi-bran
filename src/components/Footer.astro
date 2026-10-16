@@ -1,0 +1,21 @@
+---
+import { t, routes, type Lang, type PageKey } from '../i18n/content';
+interface Props { lang: Lang; page: PageKey; }
+const { lang, page } = Astro.props;
+const d = t[lang];
+const keys = ['about', 'products', 'gallery', 'contact'] as const;
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-row">
+      <img src="/robibran-logo.svg" alt={d.brand} width="295" height="76" loading="lazy" />
+      <nav class="footer-nav" aria-label={d.footerMenu}>
+        {keys.map((k) => <a href={routes[k][lang]}>{d.nav[k]}</a>)}
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div>© {new Date().getFullYear()} {d.brand}. {d.rights}</div>
+      <div><a href={routes[page].mk} lang="mk">Македонски</a> / <a href={routes[page].sq} lang="sq">Shqip</a></div>
+    </div>
+  </div>
+</footer>

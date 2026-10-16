@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import Icon from '../components/Icon.astro';
+import Values from '../components/Values.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import { t, routes, business, type Lang } from '../i18n/content';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const d = t[lang];
+const h = d.home;
+const products = [
+  { key: 'beech' as const, photo: 'lumberStacks' as const, href: routes.beech[lang] },
+  { key: 'pellet' as const, photo: 'pelletsBags' as const, href: routes.pellet[lang] },
+];
+---
+<Base lang={lang} page="home" title={h.title} description={h.description}>
+  <section class="hero">
+    <Pic photo="heroYard" lang={lang} class="cover" sizes="100vw" eager alt={h.heroAlt} />
+    <div class="shade"></div>
+    <div class="wrap hero-inner">
+      <h1>{d.brand}</h1>
+      <p>{h.heroText}</p>
+      <div class="btns btns-2">
+        <a class="btn btn-white" href={`tel:${business.phone1Tel}`}><Icon name="phone" />{d.call}</a>
+        <a class="btn btn-ghost" href={routes.products[lang]}><span class="only-lg">{h.seeProducts}</span><span class="only-sm">{d.nav.products}</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band story">
+    <Pic photo="sawLog" lang={lang} class="cover" sizes="100vw" decorative />
+    <div class="shade-strong"></div>
+    <div class="narrow band-inner">
+      <h2>{h.storyTitle}</h2>
+      <p>{h.storyText}</p>
+      <a class="link" href={routes.about[lang]}>{h.readAbout}</a>
+    </div>
+  </section>
+
+  <Values lang={lang} />
+
+  <section class="wrap section">
+    <div class="section-head">
+      <h2>{h.productsTitle}</h2>
+      <p>{h.productsText}</p>
+    </div>
+    <div class="cards">
+      {products.map((p) => (
+        <article class="card">
+          <Pic photo={p.photo} lang={lang} alt={d.products[p.key].alt} />
+          <h3>{d.products[p.key].name}</h3>
+          <p class="grow">{d.products[p.key].short}</p>
+          <a class="link" href={p.href}>{d.more}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-top">
+    <div class="wrap section">
+      <div class="section-head">
+        <h2>{h.galleryTitle}</h2>
+        <a class="link" href={routes.gallery[lang]}>{h.galleryAll}</a>
+      </div>
+      <div class="mosaic">
+        <Pic photo="yardForklift" lang={lang} class="big" />
+        <Pic photo="lumberBeams" lang={lang} class="hide-sm" sizes="(max-width: 700px) 50vw, 25vw" />
+        <Pic photo="sawLog" lang={lang} sizes="(max-width: 700px) 50vw, 25vw" />
+        <Pic photo="pelletsStack" lang={lang} sizes="(max-width: 700px) 50vw, 25vw" />
+        <Pic photo="yardStacks" lang={lang} class="hide-sm" sizes="(max-width: 700px) 50vw, 25vw" />
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <Pic photo="yardMountain" lang={lang} class="cover" sizes="100vw" decorative />
+    <div class="shade-strong"></div>
+    <div class="wrap band-inner contact-grid">
+      <div class="contact-col">
+        <h2>{h.contactTitle}</h2>
+        <ContactInfo lang={lang} dark />
+        <div class="btns btns-2">
+          <a class="btn btn-white" href={business.mapsLink} target="_blank" rel="noopener"><span class="only-lg">{d.openMaps}</span><span class="only-sm">{d.openMapsShort}</span></a>
+          <a class="btn btn-ghost" href={routes.contact[lang]}>{d.contactUs}</a>
+        </div>
+        <a class="link" href={business.facebook} target="_blank" rel="noopener">{d.followFb}</a>
+      </div>
+      <MapEmbed lang={lang} />
+    </div>
+  </section>
+</Base>

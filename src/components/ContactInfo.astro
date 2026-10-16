@@ -1,0 +1,16 @@
+---
+// Address, phones, hours and e-mail with small line icons.
+import Icon from './Icon.astro';
+import { t, business, type Lang } from '../i18n/content';
+interface Props { lang: Lang; dark?: boolean; }
+const { lang, dark = false } = Astro.props;
+const d = t[lang];
+const ic = dark ? '#D9B98C' : '#1E4D33';
+const linkStyle = dark ? 'color:#fff' : undefined;
+---
+<ul class="info">
+  <li><Icon name="pin" size={22} color={ic} /><span>{d.address}</span></li>
+  <li><Icon name="phone" size={22} color={ic} /><span><a href={`tel:${business.phone1Tel}`} style={linkStyle}>{business.phone1}</a><br /><a href={`tel:${business.phone2Tel}`} style={linkStyle}>{business.phone2}</a></span></li>
+  <li><Icon name="clock" size={22} color={ic} /><span>{d.hoursWeek}<br />{d.hoursSat}</span></li>
+  <li><Icon name="mail" size={22} color={ic} />{business.email ? <a href={`mailto:${business.email}`} style={linkStyle}>{business.email}</a> : <span>{d.emailMissing}</span>}</li>
+</ul>

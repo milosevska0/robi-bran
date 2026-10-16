@@ -1,0 +1,21 @@
+---
+// Dark green band over a photo with a title, a sentence and two buttons.
+import Pic from './Pic.astro';
+import Icon from './Icon.astro';
+import { t, routes, business, type Lang } from '../i18n/content';
+interface Props { lang: Lang; title: string; text: string; }
+const { lang, title, text } = Astro.props;
+const d = t[lang];
+---
+<section class="band cta">
+  <Pic photo="yardMountain" lang={lang} class="cover" sizes="100vw" decorative />
+  <div class="shade-strong"></div>
+  <div class="narrow band-inner">
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <div class="btns btns-2">
+      <a class="btn btn-white" href={`tel:${business.phone1Tel}`}><Icon name="phone" />{d.call}</a>
+      <a class="btn btn-ghost" href={routes.contact[lang]}>{d.contactUs}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Banner from '../components/Banner.astro';
+import Pic from '../components/Pic.astro';
+import { t, gallery, photos, type Lang } from '../i18n/content';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const g = t[lang].galleryPage;
+const filters = ['all', 'grada', 'pelet', 'pilana'] as const;
+---
+<Base lang={lang} page="gallery" title={g.title} description={g.description}>
+  <Banner lang={lang} title={g.heading} photo="yardForklift" />
+  <section class="wrap section">
+    <div class="filters" role="group" aria-label={g.filterLabel}>
+      {filters.map((f) => (
+        <button class="filter" type="button" data-filter={f} aria-pressed={f === 'all' ? 'true' : 'false'}>{g.filters[f]}</button>
+      ))}
+    </div>
+    <div class="photo-grid">
+      {gallery.map((item) => (
+        <a href={`/images/${photos[item.key].src}-1600.webp`} data-cat={item.cat} target="_blank" rel="noopener">
+          <Pic photo={item.key} lang={lang} sizes="(max-width: 700px) 50vw, 33vw" />
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter');
+  const items = document.querySelectorAll<HTMLElement>('.photo-grid [data-cat]');
+  buttons.forEach((b) =>
+    b.addEventListener('click', () => {
+      const f = b.dataset.filter;
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      items.forEach((i) => (i.hidden = f !== 'all' && i.dataset.cat !== f));
+    }),
+  );
+</script>

@@ -1,0 +1,55 @@
+---
+// One product page (used for beech lumber and for pellets).
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import Icon from '../components/Icon.astro';
+import { t, routes, business, type Lang, type PhotoKey } from '../i18n/content';
+interface Props { lang: Lang; product: 'beech' | 'pellet'; }
+const { lang, product } = Astro.props;
+const d = t[lang];
+const info = d.products[product];
+const page = product === 'beech' ? d.beechPage : d.pelletPage;
+const photosFor: Record<'beech' | 'pellet', PhotoKey[]> = {
+  beech: ['lumberStacks', 'lumberStacks2', 'lumberBeams', 'yardStacks'],
+  pellet: ['pelletsBags', 'pelletsPallets', 'pelletsCloseup', 'pelletsWarehouse'],
+};
+const [main, ...thumbs] = photosFor[product];
+const other = product === 'beech' ? 'pellet' : 'beech';
+const otherPhoto: PhotoKey = other === 'beech' ? 'lumberStacks' : 'pelletsBags';
+---
+<Base lang={lang} page={product} title={page.title} description={page.description}>
+  <div class="wrap">
+    <div class="crumbs-dark"><a href={routes.home[lang]}>{d.breadcrumbHome}</a> / <a href={routes.products[lang]}>{d.nav.products}</a> / {info.name}</div>
+    <section class="detail">
+      <div class="detail-photos">
+        <Pic photo={main} lang={lang} eager alt={info.alt} />
+        <div class="thumbs">
+          {thumbs.map((p) => <Pic photo={p} lang={lang} sizes="(max-width: 700px) 33vw, 200px" />)}
+        </div>
+      </div>
+      <div class="detail-text">
+        <h1>{info.name}</h1>
+        <p>{page.intro}</p>
+        <dl class="specs">
+          {page.specs.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+        </dl>
+        <div class="btns btns-2">
+          <a class="btn btn-green" href={`tel:${business.phone1Tel}`}><Icon name="phone" /><span class="only-lg">{d.callForPrice}</span><span class="only-sm">{d.call}</span></a>
+          <a class="btn btn-outline" href={routes.contact[lang]}>{d.writeUs}</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="stone">
+    <div class="wrap section">
+      <h2 style="font-size: 32px; margin-bottom: 28px;">{d.otherProducts}</h2>
+      <div class="others">
+        <a class="other" href={routes[other][lang]}>
+          <Pic photo={otherPhoto} lang={lang} sizes="200px" decorative />
+          <div style="padding-right: 20px;"><strong>{d.products[other].name}</strong><span>{d.products[other].short}</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
