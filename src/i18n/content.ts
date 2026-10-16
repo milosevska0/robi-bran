@@ -21,7 +21,7 @@ export const business = {
   phone1Tel: '+38970395033',
   phone2: '075 353 919',
   phone2Tel: '+38975353919',
-  email: '', // TODO: add the business e-mail, e.g. info@pilanatetovo.com
+  email: 'info@robibran.mk',
   facebook: 'https://www.facebook.com/robibran1/',
   lat: 42.037271759,
   lng: 21.1309699589,
