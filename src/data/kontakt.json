@@ -29,5 +29,9 @@
       "do": "12:00"
     }
   ],
-  "facebook": "https://www.facebook.com/robibran1/"
+  "facebook": "https://www.facebook.com/robibran1/",
+  "google": {
+    "ocena": "5.0",
+    "link": "https://www.google.com/maps/search/?api=1&query=Пилана+Роби+Бран+Туденце"
+  }
 }

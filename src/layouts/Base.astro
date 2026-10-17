@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import GoogleBadge from '../components/GoogleBadge.astro';
 import { t, routes, business, type Lang, type PageKey, type Alt } from '../i18n/content';
 import { data, phones, hoursSchema, products, productPath, findImage, L } from '../lib/site';
 import '@fontsource/oswald/500.css';
@@ -111,6 +112,7 @@ const breadcrumbs = crumbs.length ? {
       <slot />
     </main>
     <Footer lang={lang} alt={sw} />
+    <GoogleBadge lang={lang} />
     <script>
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

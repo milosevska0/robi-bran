@@ -105,6 +105,13 @@ collections:
               - { name: od, label: 'Од', widget: string, hint: 'На пр. 08:00' }
               - { name: do, label: 'До', widget: string, hint: 'На пр. 16:00' }
           - { name: facebook, label: 'Facebook линк', widget: string, required: false }
+          - name: google
+            label: 'Google оцена (долу лево)'
+            widget: object
+            required: false
+            fields:
+              - { name: ocena, label: 'Оцена', widget: string, required: false, hint: 'На пр. 5.0. Оставете празно за да не се прикажува.' }
+              - { name: link, label: 'Линк до рецензиите на Google', widget: string, required: false }
       - name: izvestuvanje
         label: 'Известување (лента на врвот)'
         file: src/data/izvestuvanje.json
