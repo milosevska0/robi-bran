@@ -252,12 +252,8 @@ p { margin: 0; }
   .hero p { font-size: 17px; }
   .hero .btns { margin-top: 14px; }
 
-  .story { border-top: 0; background: #fff; color: var(--ink); }
-  .story .cover, .story .shade-strong { display: none; }
-  .story h2 { color: var(--green); }
-  .story p { color: var(--text); }
-  .story a:not(.btn) { color: var(--green); }
-  .story .band-inner { padding-top: 56px; padding-bottom: 48px; align-items: flex-start; text-align: left; }
+  .story { border-top-width: 48px; }
+  .story .band-inner { padding-top: 64px; padding-bottom: 60px; }
   .band h2 { font-size: 28px; line-height: 1.2; }
   .story p { font-size: 16px; }
   .cta .band-inner { padding-top: 52px; padding-bottom: 52px; gap: 12px; }
