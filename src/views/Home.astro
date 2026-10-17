@@ -7,18 +7,25 @@ import ContactInfo from '../components/ContactInfo.astro';
 import MapEmbed from '../components/MapEmbed.astro';
 import Faq from '../components/Faq.astro';
 import { t, routes, business, type Lang } from '../i18n/content';
-import { data, mainPhone, products, productPath, L } from '../lib/site';
+import { data, mainPhone, products, productPath, responsive, L } from '../lib/site';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const d = t[lang];
 const h = data.pocetna;
 const fb = data.kontakt.facebook?.trim();
 const mosaic = h.galerija.sliki ?? [];
+const heroD = await responsive(h.glavnaSlika.slika);
+const heroM = await responsive((h as any).glavnaSlikaMobilna);
 const mosaicClass = ['big', 'hide-sm', '', '', 'hide-sm'];
 ---
 <Base lang={lang} page="home" title={L(h.seo?.naslov, lang)} description={L(h.seo?.opis, lang)}>
   <section class="hero parallax">
-    <Pic src={h.glavnaSlika.slika} class="cover" sizes="100vw" eager alt={L(h.glavnaSlika.opis, lang)} />
+    {heroD && (
+      <picture>
+        {heroM && <source media="(max-width: 700px)" srcset={heroM.srcset} sizes="100vw" />}
+        <img class="cover hero-img" src={heroD.src} srcset={heroD.srcset} sizes="100vw" alt={L(h.glavnaSlika.opis, lang)} fetchpriority="high" decoding="async" />
+      </picture>
+    )}
     <div class="shade"></div>
     <div class="wrap hero-inner">
       <h1>{d.brand}</h1>
@@ -29,6 +36,8 @@ const mosaicClass = ['big', 'hide-sm', '', '', 'hide-sm'];
       </div>
     </div>
   </section>
+
+  <div class="rings-strip" aria-hidden="true"></div>
 
   <section class="band story parallax">
     <Pic src={h.prikazna.slika} class="cover" sizes="100vw" />

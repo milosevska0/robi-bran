@@ -10,10 +10,10 @@
     }
   },
   "glavnaSlika": {
-    "slika": "/src/assets/uploads/pilana-tetovo-bukova-grada-dvor.webp",
+    "slika": "/src/assets/uploads/pilana-tetovo-grada-pelet-hero.webp",
     "opis": {
-      "mk": "Наредена букова граѓа во дворот на Пилана Роби Бран, Тетово, со Шар Планина",
-      "sq": "Lëndë ahu e radhitur në oborrin e Sharrës Robi Bran, Tetovë, me malin Sharr"
+      "mk": "Букова граѓа и А1 пелет во вреќи од 15 kg во дворот на Пилана Роби Бран, Тетово",
+      "sq": "Lëndë ahu dhe pelet A1 në thasë 15 kg në oborrin e Sharrës Robi Bran, Tetovë"
     }
   },
   "heroTekst": {
@@ -90,5 +90,6 @@
       "sq": "Ejani ose na telefononi"
     },
     "slika": "/src/assets/uploads/bukova-grada-shar-planina-tetovo.webp"
-  }
+  },
+  "glavnaSlikaMobilna": "/src/assets/uploads/pilana-tetovo-grada-pelet-hero-mobilen.webp"
 }

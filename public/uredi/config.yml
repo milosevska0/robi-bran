@@ -128,6 +128,7 @@ collections:
         file: src/data/pocetna.json
         fields:
           - { name: glavnaSlika, label: 'Главна слика', <<: *photo }
+          - { name: glavnaSlikaMobilna, label: 'Главна слика за мобилен (исправена, 1080×1500)', widget: image, choose_url: false, required: false, hint: 'Ако е празно, на мобилен се користи главната слика.' }
           - { name: heroTekst, label: 'Реченица под името', <<: *line }
           - name: prikazna
             label: 'Приказна (зелена лента)'

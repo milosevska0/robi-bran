@@ -81,6 +81,10 @@ p { margin: 0; }
 .mobile-panel { display: none; }
 
 /* Hero (home) */
+.hero .hero-img { object-position: right center; top: 0 !important; height: 100% !important; transform: none !important; }
+.rings-strip { height: 100px; position: relative; background: var(--stone); overflow: hidden; }
+@media (max-width: 700px) { .rings-strip { height: 64px; } }
+.rings-strip::before { content: ''; position: absolute; inset: 0; background: url(/godovi-pattern.webp) center / 300px repeat; opacity: .1; }
 .hero { position: relative; height: 660px; overflow: hidden; background: var(--green-dark); color: #fff; }
 .cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* Parallax: the photo is taller than its section and moves slower than the page (see Base.astro) */
@@ -100,7 +104,7 @@ p { margin: 0; }
 .band h2 { font-size: 40px; }
 .band p { color: rgba(255,255,255,.9); }
 .band a:not(.btn) { color: #fff; }
-.story { border-top: 100px solid var(--stone); }
+.story { border-top: 0; }
 .story .band-inner { padding-top: 112px; padding-bottom: 104px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
 .story p { font-size: 19px; }
 .cta .band-inner { padding-top: 96px; padding-bottom: 96px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
@@ -245,6 +249,7 @@ p { margin: 0; }
 
   .hero { height: 540px; }
   .hero .cover { object-position: 40% center; }
+  .hero .hero-img { object-position: center center; }
   .hero-inner { padding-bottom: 32px; gap: 12px; }
   .hero h1 { font-size: 40px; line-height: 1.05; }
   .hero p { font-size: 17px; }
@@ -333,7 +338,7 @@ p { margin: 0; }
    Nothing is hidden without JavaScript, and everything is static for "reduced motion" users. */
 @media (prefers-reduced-motion: no-preference) {
   /* Hero intro */
-  .hero .cover { animation: hero-zoom 2.4s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .cover:not(.hero-img) { animation: hero-zoom 2.4s cubic-bezier(.2,.7,.2,1) both; }
   .hero-inner > * { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
   .hero-inner > :nth-child(1) { animation-delay: .25s; }
   .hero-inner > :nth-child(2) { animation-delay: .45s; }
