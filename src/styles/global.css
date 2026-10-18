@@ -390,6 +390,10 @@ main::before {
 .post-body { color: var(--text); font-size: 18px; line-height: 1.7; margin-bottom: 32px; }
 .post-body h2 { font-size: 28px; color: var(--green); margin: 36px 0 8px; }
 .post-body ul { padding-left: 22px; }
+.post-body table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+.post-body th, .post-body td { border-bottom: 1px solid var(--line); padding: 10px 12px; text-align: left; }
+.post-body th { background: var(--stone); color: var(--ink); }
+@media (max-width: 700px) { .post-body table { font-size: 14px; } .post-body th, .post-body td { padding: 8px 6px; } }
 .footer-bottom .sep { display: inline-block; width: 18px; }
 @media (max-width: 700px) {
   .blog h1, .post h1 { font-size: 32px; }
