@@ -209,7 +209,16 @@ collections:
                   - { name: mk, label: 'МК', widget: string }
                   - { name: sq, label: 'SQ', widget: string }
               - { name: linkTekst, label: 'Текст на линкот (страна Производи)', hint: 'На пр. „Повеќе за пелетот“. Ако е празно, пишува „Повеќе“.', <<: *lineopt }
-              - { name: tekstNaStrana, label: 'Текст на страната на производот', <<: *text }
+              - { name: tekstNaStrana, label: 'Текст на страната на производот', <<: *text, hint: 'Празен ред = нов пасус. Последниот пасус се прикажува ситно (за латиница).' }
+              - name: prasanja
+                label: 'Прашања на страната на производот'
+                label_singular: 'прашање'
+                widget: list
+                required: false
+                summary: '{{fields.prasanje.mk}}'
+                fields:
+                  - { name: prasanje, label: 'Прашање', <<: *line }
+                  - { name: odgovor, label: 'Одговор', <<: *text }
               - name: detali
                 label: 'Табела со детали'
                 label_singular: 'ред'

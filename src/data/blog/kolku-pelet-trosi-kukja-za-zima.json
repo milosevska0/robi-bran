@@ -4,15 +4,15 @@
   "datum": "2026-10-18",
   "naslov": {
     "mk": "Колку пелет ви треба за една зима?",
-    "sq": ""
+    "sq": "Sa pelet ju duhet për një dimër?"
   },
   "opis": {
     "mk": "Приближна пресметка колку тони и вреќи пелет троши една куќа за грејна сезона, според квадратурата и изолацијата.",
-    "sq": ""
+    "sq": "Llogaritje e përafërt sa ton dhe thasë pelet harxhon një shtëpi për një sezon ngrohjeje, sipas sipërfaqes dhe izolimit."
   },
   "slika": "/src/assets/uploads/a1-pelet-paleti-pilana-tetovo.webp",
   "tekst": {
     "mk": "Ова е најчестото прашање што го добиваме пред зимата. Точниот број зависи од куќата, но може да се пресмета приближно.\n\n## Од што зависи\n\n- **Квадратурата** што ја грее котелот или печката.\n- **Изолацијата:** нова изолирана куќа троши и двојно помалку од стара неизолирана.\n- **Колку топло сакате** и дали грее цел ден или само навечер.\n- **Квалитетот на пелетот:** А1 пелетот дава околу 4,6 kWh топлина по килограм.\n\n## Приближна пресметка\n\n| Куќа | Изолирана | Без изолација |\n|---|---|---|\n| 60 m² | 1,2–1,8 тони (80–120 вреќи) | 2–2,5 тони (130–170 вреќи) |\n| 100 m² | 2–3 тони (130–200 вреќи) | 3,5–4,5 тони (230–300 вреќи) |\n| 150 m² | 3–4 тони (200–270 вреќи) | 5–6 тони (330–400 вреќи) |\n\nВреќата е 15 kg, значи **еден тон се 67 вреќи**. Бројките се приближни, за цела грејна сезона во Тетово и околината.\n\n## Совет\n\n- Ако ви е прва зима на пелет, земете околу две третини од пресметката, па дополнете во јануари.\n- Пелетот чувајте го на суво, на палета или штици, не директно на бетон.\n- Купувањето порано, пред големиот студ, е полесно: има доволно и не се чека.\n\nЗа количина и цена јавете се на {телефон}. Пелетот се подига од пиланата во с. Туденце, Тетово.",
-    "sq": ""
+    "sq": "Kjo është pyetja më e shpeshtë që marrim para dimrit. Numri i saktë varet nga shtëpia, por mund të llogaritet përafërsisht.\n\n## Nga çfarë varet\n\n- **Sipërfaqja** që ngroh kaldaja ose stufa.\n- **Izolimi:** një shtëpi e re e izoluar harxhon edhe dy herë më pak se një e vjetër pa izolim.\n- **Sa ngrohtë e doni** dhe nëse ngrohni gjithë ditën apo vetëm në mbrëmje.\n- **Cilësia e peletit:** peleti A1 jep rreth 4,6 kWh nxehtësi për kilogram.\n\n## Llogaritje e përafërt\n\n| Shtëpia | E izoluar | Pa izolim |\n|---|---|---|\n| 60 m² | 1,2–1,8 ton (80–120 thasë) | 2–2,5 ton (130–170 thasë) |\n| 100 m² | 2–3 ton (130–200 thasë) | 3,5–4,5 ton (230–300 thasë) |\n| 150 m² | 3–4 ton (200–270 thasë) | 5–6 ton (330–400 thasë) |\n\nThesi është 15 kg, pra **një ton janë 67 thasë**. Shifrat janë të përafërta, për gjithë sezonin e ngrohjes në Tetovë dhe rrethinë.\n\n## Këshillë\n\n- Nëse është dimri juaj i parë me pelet, merrni rreth dy të tretat e llogaritjes dhe plotësoni në janar.\n- Ruajeni peletin në vend të thatë, mbi paletë ose dërrasa, jo direkt mbi beton.\n- Blerja më herët, para të ftohtit të madh, është më e lehtë: ka mjaftueshëm dhe nuk pritet.\n\nPër sasi dhe çmim telefononi në {телефон}. Peleti merret në sharrë, në fsh. Tudencë, Tetovë."
   }
 }

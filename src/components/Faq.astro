@@ -2,10 +2,10 @@
 // Frequently asked questions (edited in the admin panel). Also sent to Google as FAQPage data.
 import { type Lang } from '../i18n/content';
 import { data, L } from '../lib/site';
-interface Props { lang: Lang; }
-const { lang } = Astro.props;
+interface Props { lang: Lang; list?: any[]; }
+const { lang, list } = Astro.props;
 const f = data.cestiPrasanja;
-const items = (f.prasanja ?? []).map((q) => ({ q: L(q.prasanje, lang), a: L(q.odgovor, lang) })).filter((i) => i.q && i.a);
+const items = (list ?? f.prasanja ?? []).map((q) => ({ q: L(q.prasanje, lang), a: L(q.odgovor, lang) })).filter((i) => i.q && i.a);
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',

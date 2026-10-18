@@ -3,6 +3,7 @@
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import Icon from '../components/Icon.astro';
+import Faq from '../components/Faq.astro';
 import { t, routes, type Lang } from '../i18n/content';
 import { products, productPath, productAlt, mainPhone, L, type Product } from '../lib/site';
 interface Props { lang: Lang; product: Product; }
@@ -27,7 +28,7 @@ const others = products.filter((p) => p !== product);
       </div>
       <div class="detail-text">
         <h1>{name}</h1>
-        <p>{L(product.tekstNaStrana, lang)}</p>
+        {L(product.tekstNaStrana, lang).split(/\n\s*\n/).map((t, i, a) => <p class={i === a.length - 1 && a.length > 1 ? 'latin-note' : undefined}>{t}</p>)}
         {specs.length > 0 && (
           <dl class="specs">
             {specs.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
@@ -40,6 +41,8 @@ const others = products.filter((p) => p !== product);
       </div>
     </section>
   </div>
+
+  {((product as any).prasanja ?? []).length > 0 && <Faq lang={lang} list={(product as any).prasanja} />}
 
   {others.length > 0 && (
     <section class="stone">

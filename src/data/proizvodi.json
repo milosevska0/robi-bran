@@ -51,8 +51,8 @@
         "sq": "Më shumë për lëndën e ahut"
       },
       "tekstNaStrana": {
-        "mk": "Буката е тврдо и цврсто дрво, добро за мебел, столарија, скали и градба. Ја сечеме по мерката што ви треба.",
-        "sq": "Ahu është dru i fortë dhe i qëndrueshëm, i mirë për mobilje, zdrukthëtari, shkallë dhe ndërtim. E presim sipas masës që ju duhet."
+        "mk": "Буката е тврдо и цврсто дрво со убава, рамномерна шара. Се користи за мебел, столарија, скали, подови, работни плочи и градба.\n\nГи сечеме штиците, талпите и гредите по мерката што ви треба. Кажете ни должина, ширина, дебелина и количина, а ние ќе ви кажеме цена и кога е готово. Режеме и за мали нарачки и за поголеми количини.\n\nГраѓата се подига од пиланата во с. Туденце, Тетово. За цена јавете се на {телефон}.\n\nBukova gragja (građa, gradja) Tetovo – štici, talpi i gredi po merka.",
+        "sq": "Ahu është dru i fortë dhe i qëndrueshëm, me fibër të bukur e të njëtrajtshme. Përdoret për mobilje, zdrukthëtari, shkallë, dysheme, pllaka pune dhe ndërtim.\n\nDërrasat, tablat dhe trarët i presim sipas masës që ju duhet. Na tregoni gjatësinë, gjerësinë, trashësinë dhe sasinë, e ne ju themi çmimin dhe kur është gati. Presim edhe për porosi të vogla edhe për sasi më të mëdha.\n\nLënda merret në sharrë, në fsh. Tudencë, Tetovë. Për çmim telefononi në {телефон}.\n\nLëndë ahu Tetovë – dërrasa, tabla dhe trarë sipas masës."
       },
       "detali": [
         {
@@ -128,14 +128,46 @@
       ],
       "seo": {
         "naslov": {
-          "mk": "Букова граѓа по мерка, Тетово | Пилана Роби Бран",
-          "sq": "Lëndë ahu sipas masës, Tetovë | Sharra Robi Bran"
+          "mk": "Букова граѓа Тетово – штици, талпи и греди по мерка | Роби Бран",
+          "sq": "Lëndë ahu Tetovë – dërrasa, tabla dhe trarë sipas masës | Robi Bran"
         },
         "opis": {
           "mk": "Букови штици, талпи и греди сечени по ваша мерка. Пилана Роби Бран, с. Туденце, Тетово. Јавете се за цена: {телефон}.",
           "sq": "Dërrasa, tabla dhe trarë ahu të prera sipas masës suaj. Sharra Robi Bran, fsh. Tudencë, Tetovë. Telefononi për çmim: {телефон}."
         }
-      }
+      },
+      "prasanja": [
+        {
+          "prasanje": {
+            "mk": "Дали имате достава?",
+            "sq": "A keni transport deri në shtëpi?"
+          },
+          "odgovor": {
+            "mk": "Не. Граѓата и пелетот се подигаат од пиланата, на адреса {адреса}.",
+            "sq": "Jo. Lënda dhe peleti merren në sharrë, në adresën {адреса}."
+          }
+        },
+        {
+          "prasanje": {
+            "mk": "Дали сечете по мерка?",
+            "sq": "A prisni sipas masës?"
+          },
+          "odgovor": {
+            "mk": "Да. Буковата граѓа ја сечеме по должината, ширината и дебелината што ви требаат.",
+            "sq": "Po. Lëndën e ahut e presim sipas gjatësisë, gjerësisë dhe trashësisë që ju nevojitet."
+          }
+        },
+        {
+          "prasanje": {
+            "mk": "Колку чини граѓата или пелетот?",
+            "sq": "Sa kushton lënda ose peleti?"
+          },
+          "odgovor": {
+            "mk": "Цената зависи од мерката и количината. Јавете се на {телефон} за точна цена.",
+            "sq": "Çmimi varet nga masa dhe sasia. Na telefononi në {телефон} për çmim të saktë."
+          }
+        }
+      ]
     },
     {
       "ime": {
@@ -169,8 +201,8 @@
         "sq": "Më shumë për peletin"
       },
       "tekstNaStrana": {
-        "mk": "Нашиот пелет е произведен од 100% дрво и е со А1 сертификат. Погоден е за печки и котли на пелет.",
-        "sq": "Peleti ynë është prodhuar prej 100% druri dhe ka certifikatë A1. Është i përshtatshëm për stufa dhe kaldaja me pelet."
+        "mk": "Нашиот пелет е произведен од 100% дрво, без кора, лепила и додатоци, и е со А1 сертификат. Тоа е највисоката класа за пелет за домаќинства. Погоден е за сите котли и печки на пелет.\n\nА1 пелетот остава малку пепел, па печката поретко се чисти. Гори рамномерно и дава повеќе топлина за иста количина. Пакуван е во вреќи од 15 kg, кои лесно се носат и се чуваат.\n\nПелетот се подига од пиланата во с. Туденце, Тетово, во работно време. Можете да земете неколку вреќи или поголема количина за цела зима. За цена јавете се на {телефон}.\n\nPelet / peleti Tetovo – pelet A1 vo vreki od 15 kg.",
+        "sq": "Peleti ynë është prodhuar prej 100% druri, pa lëvore, ngjitës dhe shtesa, dhe ka certifikatë A1. Kjo është klasa më e lartë e peletit për amvisëri. Është i përshtatshëm për të gjitha kaldajat dhe stufat me pelet.\n\nPeleti A1 lë pak hi, prandaj soba pastrohet më rrallë. Digjet në mënyrë të njëtrajtshme dhe jep më shumë nxehtësi për të njëjtën sasi. Paketohet në thasë 15 kg, që barten dhe ruhen lehtë.\n\nPeleti merret në sharrë, në fsh. Tudencë, Tetovë, gjatë orarit të punës. Mund të merrni disa thasë ose sasi më të madhe për gjithë dimrin. Për çmim telefononi në {телефон}.\n\nPelet Tetovë – pelet A1 në thasë 15 kg."
       },
       "detali": [
         {
@@ -179,8 +211,48 @@
             "sq": "Certifikata"
           },
           "vrednost": {
-            "mk": "А1",
-            "sq": "A1"
+            "mk": "А1 (EN ISO 17225-2)",
+            "sq": "A1 (EN ISO 17225-2)"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Дијаметар",
+            "sq": "Diametri"
+          },
+          "vrednost": {
+            "mk": "6 mm",
+            "sq": "6 mm"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Влага",
+            "sq": "Lagështia"
+          },
+          "vrednost": {
+            "mk": "до 10%",
+            "sq": "deri 10%"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Пепел",
+            "sq": "Hiri"
+          },
+          "vrednost": {
+            "mk": "до 0,7%",
+            "sq": "deri 0,7%"
+          }
+        },
+        {
+          "naslov": {
+            "mk": "Топлинска вредност",
+            "sq": "Vlera termike"
+          },
+          "vrednost": {
+            "mk": "околу 4,6 kWh/kg",
+            "sq": "rreth 4,6 kWh/kg"
           }
         },
         {
@@ -246,14 +318,56 @@
       ],
       "seo": {
         "naslov": {
-          "mk": "А1 пелет во вреќи од 15 kg, Тетово | Пилана Роби Бран",
-          "sq": "Pelet A1 në thasë 15 kg, Tetovë | Sharra Robi Bran"
+          "mk": "Пелети Тетово – А1 пелет во вреќи од 15 kg | Пилана Роби Бран",
+          "sq": "Pelet Tetovë – pelet A1 në thasë 15 kg | Sharra Robi Bran"
         },
         "opis": {
-          "mk": "Сертифициран А1 пелет од 100% дрво во вреќи од 15 kg. Подигање од пиланата во с. Туденце, Тетово. Јавете се: {телефон}.",
-          "sq": "Pelet i certifikuar A1 prej 100% druri në thasë 15 kg. Merret në sharrë, fsh. Tudencë, Tetovë. Telefononi: {телефон}."
+          "mk": "Сертифициран А1 пелет од 100% дрво, 6 mm, во вреќи од 15 kg. Подигање од пиланата во с. Туденце, Тетово. Јавете се: {телефон}.",
+          "sq": "Pelet i certifikuar A1 prej 100% druri, 6 mm, në thasë 15 kg. Merret në sharrë, fsh. Tudencë, Tetovë. Telefononi: {телефон}."
         }
-      }
+      },
+      "prasanja": [
+        {
+          "prasanje": {
+            "mk": "Дали имате достава?",
+            "sq": "A keni transport deri në shtëpi?"
+          },
+          "odgovor": {
+            "mk": "Не. Граѓата и пелетот се подигаат од пиланата, на адреса {адреса}.",
+            "sq": "Jo. Lënda dhe peleti merren në sharrë, në adresën {адреса}."
+          }
+        },
+        {
+          "prasanje": {
+            "mk": "Колку чини граѓата или пелетот?",
+            "sq": "Sa kushton lënda ose peleti?"
+          },
+          "odgovor": {
+            "mk": "Цената зависи од мерката и количината. Јавете се на {телефон} за точна цена.",
+            "sq": "Çmimi varet nga masa dhe sasia. Na telefononi në {телефон} për çmim të saktë."
+          }
+        },
+        {
+          "prasanje": {
+            "mk": "Каков пелет продавате?",
+            "sq": "Çfarë peleti shitni?"
+          },
+          "odgovor": {
+            "mk": "Сертифициран А1 пелет од 100% дрво, во вреќи од 15 kg.",
+            "sq": "Pelet i certifikuar A1 prej 100% druri, në thasë 15 kg."
+          }
+        },
+        {
+          "prasanje": {
+            "mk": "Колку вреќи ми требаат за зима?",
+            "sq": "Sa thasë më duhen për dimër?"
+          },
+          "odgovor": {
+            "mk": "Зависи од квадратурата и изолацијата. За куќа од 100 m² обично се потребни 2 до 4,5 тони, односно 130 до 300 вреќи. Подетална пресметка има во нашиот блог.",
+            "sq": "Varet nga sipërfaqja dhe izolimi. Për një shtëpi 100 m² zakonisht duhen 2 deri 4,5 ton, pra 130 deri 300 thasë. Llogaritje më të detajuar gjeni në blogun tonë."
+          }
+        }
+      ]
     }
   ],
   "nacinNaslov": {

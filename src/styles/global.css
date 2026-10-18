@@ -401,3 +401,5 @@ main::before {
   .post-card img { height: 190px; }
   .post-body { font-size: 17px; }
 }
+
+.detail-text p.latin-note, .latin-note { color: var(--muted); font-size: 15px; }
