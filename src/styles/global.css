@@ -216,7 +216,8 @@ p { margin: 0; }
 /* Footer */
 .site-footer .wrap { padding-top: 56px; padding-bottom: 36px; display: flex; flex-direction: column; gap: 36px; }
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
-.footer-row img { height: 46px; width: auto; }
+.footer-row img { height: 46px; width: auto; display: block; }
+.footer-logo { display: inline-block; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 16px; }
 .footer-nav a { color: var(--text); text-decoration: none; }
 .footer-bottom { border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 15px; color: var(--muted); }

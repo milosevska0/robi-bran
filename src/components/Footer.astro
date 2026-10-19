@@ -10,7 +10,7 @@ const showBlog = posts.some((p) => hasLang(p, lang));
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-row">
-      <img src="/robibran-logo.svg" alt={d.brand} width="295" height="76" loading="lazy" />
+      <a href={routes.home[lang]} class="footer-logo" aria-label={d.brand}><img src="/robibran-logo.svg" alt={d.brand} width="295" height="76" loading="lazy" /></a>
       <nav class="footer-nav" aria-label={d.footerMenu}>
         {keys.map((k) => <a href={routes[k][lang]}>{d.nav[k]}</a>)}
       </nav>
