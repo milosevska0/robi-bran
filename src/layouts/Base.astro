@@ -148,9 +148,8 @@ const breadcrumbs = crumbs.length ? {
       }
 
       // 2) Parallax: background photos move slower than the page;
-      //    the hero text fades and lifts away as you scroll down.
+      //    the hero text stays in place.
       const sections = [...document.querySelectorAll<HTMLElement>('.parallax')];
-      const heroInner = document.querySelector<HTMLElement>('.hero-inner');
       let ticking = false;
       const update = () => {
         ticking = false;
@@ -164,11 +163,6 @@ const breadcrumbs = crumbs.length ? {
           // -1 when the section enters at the bottom, 0 in the middle, 1 when it leaves at the top
           const p = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
           img.style.transform = `translate3d(0, ${(p * r.height * 0.25).toFixed(1)}px, 0)`;
-        }
-        if (heroInner) {
-          const t = Math.min(Math.max(window.scrollY / (vh * 0.6), 0), 1);
-          heroInner.style.opacity = String(1 - t);
-          heroInner.style.translate = `0 ${(-t * 80).toFixed(1)}px`;
         }
       };
       const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
