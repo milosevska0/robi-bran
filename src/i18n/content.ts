@@ -22,7 +22,7 @@ export const business = {
   lng: 21.1309699589,
   mapsLink: 'https://www.google.com/maps/search/?api=1&query=42.037271759,21.1309699589',
   mapsEmbed: 'https://maps.google.com/maps?q=42.037271759,21.1309699589&z=15&output=embed',
-  founded: '2005',
+  founded: '2006',
 };
 
 export const t = {
