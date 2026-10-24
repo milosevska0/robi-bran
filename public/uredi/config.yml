@@ -80,7 +80,7 @@ collections:
             min: 0
             summary: '{{fields.broj}}'
             fields:
-              - { name: broj, label: 'Број', widget: string, hint: 'На пр. 070 395 033' }
+              - { name: broj, label: 'Број', widget: string, hint: 'На пр. 075 353 919' }
           - { name: email, label: 'Е-пошта', widget: string, required: false, hint: 'Оставете празно за да не се прикажува.' }
           - { name: adresa, label: 'Адреса', <<: *line }
           - name: rabotnoVreme
