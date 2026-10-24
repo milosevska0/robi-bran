@@ -19,7 +19,7 @@ export type Photo = { slika: string; opis: Pair };
 export const data = { kontakt, izvestuvanje, pocetna, vrednosti, proizvodi, zaNas, galerija, kontaktStrana, cestiPrasanja };
 
 // ---- Phones ---------------------------------------------------------------
-// "075 353 919" -> "+38970395033"
+// "075 353 919" -> "+38975353919"
 const toTel = (n: string) => {
   const d = n.replace(/[^\d+]/g, '');
   if (d.startsWith('+')) return d;
